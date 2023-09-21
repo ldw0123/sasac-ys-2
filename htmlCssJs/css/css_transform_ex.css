@@ -1,0 +1,17 @@
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+
+/* 마우스를 올리면 진행됨 */
+.item:hover {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    color: white;
+    /* transition: 속성명 지속시간 타이밍함수 대기시간; */
+    transition: all 1.5s ease 0.5s;
+    /* 모든 속성에 대해 0.5초의 대기시간 후 1.5초 동안 느리게-빠르게-느리게 타이밍으로 진행시킴 */
+}

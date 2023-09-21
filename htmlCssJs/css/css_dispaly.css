@@ -1,0 +1,55 @@
+/* 기본적으로 이 설정이 들어가 있음
+div {
+    display: block;
+} 
+*/
+
+.box {
+    background-color: black; 
+    width: 100px; 
+    height: 100px;
+    color: white;
+    margin: 5px; 
+    /* 텍스트 가운데 정렬 */
+    text-align: center;
+    /* 텍스트 세로축으로 가운데 정렬 */
+    line-height: 100px;
+}
+
+/* inline : width, heigth, margin(top, bottom) 무용지물. 먹히지 않음 */
+/* display: inline-block; -> 이것들을 사용할 수 있게 해 줌 */
+.d-inline-block {
+    display: inline-block;
+    padding: 20px; 
+}
+
+/* display: flex; -> 자식 요소를 inline 블럭으로 만듦  */
+.container {
+    display: flex;
+    height: 500px;
+    /* 세로정렬 */
+    flex-direction: column;
+}
+
+.container-2 {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(133, 133, 251);
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container-3 {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(133, 133, 251);
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: center;
+    align-content: flex-start;
+    
+}

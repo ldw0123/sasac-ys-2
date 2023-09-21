@@ -1,0 +1,47 @@
+.h-hover:hover {
+    color: red;
+}
+
+.a-active:active {
+    background-color: blue;
+}
+
+.input-focus {
+    background-color: orange;
+}
+
+.stripes div:nth-child(2n+1) {
+    background-color: navy;
+    color:white
+}
+
+.stripes div:nth-child(2n) {
+    background-color: yellow;
+}
+
+.div.box {
+    color: aquamarine;
+}
+
+div.box::before {
+    content: "택시";
+}
+
+
+div.box::after {
+    content: "빨리";
+}
+
+/* 속성 선택자 */
+input[disabled] {
+    background-color: red;
+}
+
+input[placeholder="이름"] {
+    background-color: orange;
+}
+
+/* ~을 선택하지 않는 선택자 : ":not" */
+input:not([placeholder]) {
+    background-color: blue;
+}

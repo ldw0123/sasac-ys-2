@@ -1,0 +1,30 @@
+.img-skew:active {
+    /* :active - 클릭하고 있을 때 */
+    /* x축, y축을 기준으로 기울임 */
+    /* 단위: deg */
+    transform: skew(20deg, 20deg);
+}
+
+.img-rotate:active {
+    /* 회전 */
+    /* 단위: deg */
+    transform: rotateY(40deg);
+}
+
+.img-scale:active {
+    transform: scale(1.5);
+}
+
+.img-translate:active {
+    /* 단위: px, em, % 등 */
+    transform: translate(10px, 30%);
+}
+
+.img-transform:active {
+    width: 500px;
+    /* transform: 원근법 이동 크기 회전 기울임; */
+    transform: perspective(150px) scale(1.5) rotateY(40deg);
+    /* transition: 속성명 지속시간 타이밍함수 대기시간; */
+    transition: transform 2s linear 0.5s;
+    /* transform속성을 0.5초의 대기시간 후 2초에 걸쳐 일정하게 진행시키라는 의미 */
+}

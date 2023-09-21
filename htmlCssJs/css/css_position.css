@@ -1,0 +1,94 @@
+/* body에 마진을 0을 줌 */
+body {
+    margin: 0;
+}
+
+/* relative */
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.box-red {
+    /* absolute: 위치 상 부모 요소를 기준으로 배치 */
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    background-color: red;
+}
+
+.box-orange {
+    /* realtive: 요소 자신을 기준으로 배치 */
+    position: relative;
+    top: 20px;
+    /* 위에서 20px 멀어짐 */
+    bottom: 20px;
+    /* 아래에서 20px 멀어짐. 즉, 위로 20px 올라옴 */
+    /* bottom: -20px; */
+    /* 아래쪽으로 20px 이동함 */
+    right: 20px;
+    /* 오른쪽에서 20px 멀어짐. */
+    /* left: 20px; */
+    background-color: orange;
+}
+
+.box-yellow {
+    position: absolute;
+    right: 30px;
+    /* 오른쪽에서 20px 멀어짐. 화면의 오른쪽 */
+    top: 20px;
+    background-color: yellow;
+}
+
+.sm-box {
+    width: 50px;
+    height: 50px;
+}
+
+.box-green {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+    background-color: green;
+}
+
+.fixed {
+    /* fixed: 브라우저를 기준으로 배치 */
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: blue;
+}
+
+.container {
+    /* 위치를 잡기 위해 position값이 있어야 함 */
+    position: relative;
+    background-color: rgb(70, 70, 165);
+    height: 200px;
+    z-index: 999;
+}
+
+.item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    /* z-index: 1; */
+    background-color: red;
+}
+
+.orange {
+    /* z-index: 2; */
+    top: 20px;
+    left: 20px;
+    background-color: orange;
+}
+
+.yellow {
+    top: 40px;
+    left: 40px;
+    background-color: yellow;
+}

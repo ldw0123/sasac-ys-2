@@ -1,0 +1,20 @@
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /* animation: name duration timing-function delay  iteration-count direction */
+    /* 횟수에 infinite 넣으면 무한 반복 */
+    animation: movetoright 2s linear 1s infinite alternate;
+}
+
+@keyframes movetoright{
+    from {
+        /* left값은 position이 있어야 사용할 수 있음 */
+        left: 0px;
+    }
+
+    to {
+        left: 100px;
+    }
+}

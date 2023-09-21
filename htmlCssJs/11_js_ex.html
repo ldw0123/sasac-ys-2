@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 실습</title>
+</head>
+<body>
+    <script>
+        let me = {
+            name: "dw",
+            isLeader: false,
+            job: "student",
+            interests: ["tv", "music", "nexflix"]
+        }
+        console.log(me);
+
+        let mathScore = Number(prompt("수학 점수를 입력하세요"));
+        let engScore = Number(prompt("영어 점수를 입력하세요"));
+        let avgScore = (mathScore + engScore) / 2;
+        console.log("수학과 영어 점수의 평균은 " + avgScore + "점 입니다.");
+
+
+        function multifly(a, b) {
+            return a * b;
+        }
+        console.log(multifly(3, 7)); // 21
+        console.log(multifly(2, 2)); // 4
+        
+        function square(c) {
+            return c * c;
+        }
+        console.log(square(4)); // 16
+        console.log(square(11)); // 121
+        console.log(square(5)); //25
+
+    </script>
+</body>
+</html>

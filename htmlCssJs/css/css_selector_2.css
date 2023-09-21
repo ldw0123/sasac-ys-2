@@ -1,0 +1,77 @@
+.div-hover:hover {
+    background-color: red;
+}
+
+.div-active:active {
+    background-color: blue;
+    color: white;
+}
+
+.input-focus:focus {
+    background-color: orange;
+}
+
+a:visited {
+    color:red;
+}
+
+/* "fruits하위 요소 중에서 첫번째 자식이 span인 경우에" 라는 뜻 */
+.fruits span:first-child{
+    color: red;
+}
+
+/* "fruits하위 요소 중에서 마지막 자식이 span인 경우에" 라는 뜻 */
+.fruits h3:last-child {
+    color: red;
+}
+
+/* "fruits하위 요소 중에서 두 번째 자식이 span인 경우에" 라는 뜻 */
+.fruits span:nth-child(2) {
+    color: red;
+}
+
+/* 홀수번째를 선택. n=0 부터 */
+.fruits-2 span:nth-child(2n+1) {
+    color: blue;
+}
+
+/* wm클래스를 가지지 않은 span을 선택함 */
+.fruits-2 span:not(wm) {
+    background-color: wheat;
+}
+
+/* span이 아닌 것만 다 선택됨. (*은 전체 선택자) */
+.fruits *:not(span) {
+    background-color: rgb(184, 163, 123);
+}
+
+/* ::before - div의 before-el 클래스의 앞에 추가*/
+div.before-el::before {
+    content: "앞!" ;
+}
+
+/* ::after - div의 before-el 클래스의 뒤에 추가 */
+div.after-el::after {
+    content: "뒤!" ;
+    color: white;
+    font-size: 12px;
+    background-color: red;
+    border-radius: 4px; /* 사각형의 모서리를 둥글게 만듦 */
+}
+
+input[type=password] {
+   background-color: rgb(238, 170, 170); 
+}
+
+input[name=abc] {
+    background-color: rgb(204, 248, 184); 
+ }
+
+ /* css 우선순위 */
+ .wm-3 {
+    color: blue;
+ }
+
+ .fruits-3 > .wm-3 {
+    color: red;
+ }

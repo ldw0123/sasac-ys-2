@@ -1,0 +1,51 @@
+/* 태그 선택자 */
+h1 {
+    color: blue;
+}
+
+/* 전체 선택자 */
+* {
+
+}
+
+/* 클래스 선택자 */
+.orange {
+    color: orange;
+}
+
+.bg-red {
+    background-color: darkcyan;
+}
+
+/* id 선택자 */
+#red {
+    color: red;
+}
+
+#list_1 {
+    background-color: green;
+}
+
+/* /* 하위 선택자 */
+/* div선택자의 하위에 있는 apple클래스를 선택 */
+div .apple {
+    color: rgb(175, 11, 11);
+}
+
+/* 자식 선택자 */
+/* div선택자의 자식들 중에서 apple클래스를 선택 */
+div > .apple {
+    color: rgb(38, 187, 143);
+}
+
+/* 인접 형제 선택자 */
+h2 + ul {
+    font-size: 30px;
+    color: blue;
+}
+
+/* 일반 형제 선택자 */
+h2 ~ ul {
+    font-size: 30px;
+    color: blue;
+}
