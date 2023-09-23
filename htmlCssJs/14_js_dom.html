@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object 객체</title>
 </head>
+
 <body>
-    
+    <script>
+        let num = 5;
+        let num2 = num; // 기본 자료형은 값을 복사
+        num2 += 5;
+        console.log(num, num2);
+
+        let arr = [1, 2, 3, 4, 5];
+        let arr2 = arr; // 객체는 주소값을 복사 -> arr와 arr2는 같은 공간을 바라보게 됨
+        // 따라서, arr를 바꾸면 arr2의 값도 바뀌게 됨
+
+        arr2.reverse();
+        console.log(arr); // [5, 4, 3, 2, 1]
+        console.log(arr2); // [5, 4, 3, 2, 1]
+
+
+
+    </script>
 </body>
+
 </html>
