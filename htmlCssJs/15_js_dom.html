@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <div id="box" class="box">hello</div>
+    <div id="container" class="box item">hello</div>
+    <span>hello span</span>
+    <input type="text" name="email" />
+
+    <div id="box2">
+        <b>hello</b> box2
+    </div>
+
+    <script>
+        // 💡DOM: Document Object Model 문서 객체 모델
+        console.log(document.documentElement); // html 태그까지 가져옴
+        console.log(document.head); // head 태그
+        console.log(document.title); // title
+        console.log(document.body); // body 태그
+        console.log(document.URL); // URL
+        console.log(document.domain); // domain (127.0.0.1 -> 로컬 호스트)
+
+        // id가 box인 코드를 가져 옴
+        let elById = document.getElementById("box");
+        console.log(elById);
+
+        // class가 box인 코드를 가져옴
+        let elByClass = document.getElementsByClassName("box");
+        console.log(elByClass);
+        console.log(elByClass[0]);
+        console.log(elByClass[1]);
+
+        // 태그 이름
+        let elByTag = document.getElementsByTagName("span");
+        console.log(elByTag); // 배열 안에 들어가 있는 것처럼 출력
+        console.log(elByTag[0]);
+
+        // name 속성값
+        let elByName = document.getElementsByName("email");
+        console.log(elByName);
+
+        // css 선택자를 이용하여 요소를 선택
+        let elbySelector = document.querySelector(".box") // box 클래스 선택
+        // let elbySelector = document.querySelector("div") //div 태그 선택
+        let elbySelectorAll = document.querySelectorAll(".box")
+        console.log(elbySelector);
+        console.log(elbySelectorAll);
+
+        let elBox2 = document.getElementById("box2");
+        // let elBox2 = document.querySelector("#box2");
+
+        console.log(elBox2.innerText); // text만 뽑아 옴
+        console.log(elBox2.innerHTML); // 안에 있는 컨텐츠(요소 태그 통틀어서)를 다 가져옴
+
+        elBox2.innerText = "hello lily"; // text 내용 바꾸기
+        elBox2.innerText = "hello <b>lily</b>"; // 태그는 안 바뀜
+        elBox2.innerHTML = "hello <b>lily</b>"; //  태그까지 다 바꾸기
+    </script>
+</body>
+
+</html>
