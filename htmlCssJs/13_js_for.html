@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang=ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+
+<body>
+    <script>
+        // 배열과 for문을 함께 사용하는 경우가 많음
+        // 배열: 비슷한 특징을 가진 값을 모아 둔 것
+
+        // 💡for문
+        // 초기값; 조건문; 증감문
+        for (let i = 0; i < 10; i++) {
+            // 명령문(반복하고 싶은 코드). 거짓이 되는 순간 for문을 빠져나옴
+            // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+            console.log(i, "안녕?");
+        }
+        console.log("끝");
+
+        // 중첩 for문
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                console.log(`i: ${i}, j: ${j}`)
+            }
+        }
+
+        // 초기값; 조건식; 증감문
+        for (let i = 0; i < 10; i = i + 2) {
+            console.log(`i: ${i}`);
+        }
+        for (let i = 10; i > 0; i--) {
+            console.log(`i: ${i}`);
+        }
+        for (let i = 10; i > 0; i = i - 3) {
+            console.log(`i: ${i}`);
+        }
+
+        // for문과 while문 차이
+        // for: 반복할 횟수를 특정할 수 있을 때
+        // while: 반복할 횟수를 특정할 수 없을 때
+
+        // 💡while문
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+
+            if (i == 5) break; // 반복문 강제로 종료 시킴
+        }
+
+        let i = 0; // 초기값
+        while (i < 10) { // 조건식
+            // 조건이 true일 경우 실행할 명령문
+            console.log(i, "하이하이");
+            i++; // 증감문
+            let j = 0;
+            while (j < 10) {
+                console.log(j, "바이바이");
+                j++;
+            }
+        }
+
+        // let number = Number(prompt("양수를 입력하세요"))
+        // while(number < 0) { // 조건
+        //     number = Number(prompt("양수를 입력하세요"))
+        // }
+
+        while (true) {
+            let number = Number(prompt("양수를 입력하세요"))
+            if (number > 0) break; // 양수일 때 while문을 종료
+            console.log("음수를 입력하면 안 돼여")
+        }
+        console.log("양수를 잘 입력하셨군요!")
+
+        // 💡continue; 반복문을 다음으로 넘기겠다는 뜻
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 == 0) continue; // i가 짝수일 때 다음 반복으로 넘김
+            console.log(i);
+            // continue를 만나면 이 지점으로 jump!
+        }
+
+        // do-while문
+        // while(조건) {
+
+        // }
+        // do { // 처음 한 번은 무조건 실행시킴
+
+        //     let number = Number(prompt("양수를 입력하세요"))
+        // } while(number < 0))
+
+        // 💡배열
+        let fruits = ["apple", "banana", "grape"];
+        // 배열의 크기만큼 for문을 돌림
+        for (let i = 0; i < fruits.length; i++) {
+            console.log("for문: " + fruits[i])
+        }
+
+        // for / of 문
+        // let 변수이름 of (위에서 선언해 둔)배열: 뒤의 배열의 값 자체를 변수에 담는다
+        for (let f of fruits) {
+            console.log("for / of문: " + f);
+        }
+
+        // 함수: (재사용 가능성이 있는) 특정 기능을 묶어둔 것.
+        // 메서드: 함수에 속하는 개념. 객체 내(class)에서 선언된 함수
+
+
+        const cat = { // 배열 객체 선언
+            name: "나비",
+            age: 80,
+            mew: function () { // 메서드
+                console.log("야옹~!");
+            }
+        }
+
+        cat.mew();
+
+
+        // forEach함수 문법: 배열.forEach()
+        // 배열의 원소를 순차적으로 탐색하는 기능
+        // 매개변수를 받음. 각각 순서대로 -> (탐색된 원소, 인덱스, 배열)
+        let fruits2 = ["apple", "banana", "grape"];
+        // 익명함수: 이름이 정의 되지 않은 함수
+        fruits2.forEach((fruit, index, array) => {
+            console.log(fruit)
+            console.log(index)
+            console.log(array)
+        })
+
+        // fruits2.forEach(function(fruit, index) {
+        //     console.log(fruit)
+        //     console.log(index)
+        //     console.log(array)
+        // })
+
+
+        // 💡배열의 기타 메서드 (꼭 코드 작성해보기!)
+        // arr.filter()
+        // arr.find()
+        // arr.map()
+
+
+        // 💡배열 관련 메서드arr.push(): 배열 끝에 추가
+        // arr.pop(): 배열 끝 요소 제거
+        // arr.shift(), arr.unshift(): 배열 앞에 제거/추가
+        // arr.include(요소): 배열에 해당 요소가 있는지 확인
+        let numbers = []; // 빈 배열 선언
+        for (let i = 1; i <= 10; i++) {
+            // 배열.push -> 배열에 원소를 추가하겠다는 뜻
+            // 배열(numbers)의 마지막에 인자로 넘어간 값을 추가
+            numbers.push(i);
+        }
+        console.log("배열 numbers: " + numbers);
+
+        // .pop(): 마지막 원소를 제거
+        numbers.pop()
+        console.log("pop " + numbers);
+
+        numbers.shift()
+        console.log("shift " + numbers);
+
+        numbers.unshift(10)
+        console.log("unshift " + numbers);
+
+        // arr.includes(): 괄호 안의 수가 포함 되어있는가?
+        console.log("arr.includes ", numbers.includes(5))
+
+        // arr.indexOf() : 문자열에서의 indexOf와 마찬가지로 매개변수에 해당하는 배열의 인덱스를 받아옴. 단, 매개변수로 문자열만 넣을 수 있는 것은 아님!
+        // arr.reverse() : 배열 순서 뒤집어서 반환
+        // arr.join(): join 안의 문자열 기준으로 문자열로 병합
+        console.log("arr.indexOf " + numbers.indexOf(5));
+        console.log("arr.indexOf " + numbers.indexOf(1));
+
+        // arr.reverse(): 배열 순서 뒤집어서 반환
+        numbers = numbers.reverse();
+        console.log("arr.reverse " + numbers);
+
+        // [1, 2, 3].join("") // "123"
+        console.log("arr.join ", + numbers.join(""));
+        console.log(["a", "p", "p", "l", "e"].join("")); // apple
+        console.log(["a", "p", "p", "l", "e"].join(",")); // a,p,p,l,e    
+
+        // 💡문자열 관련 메서드
+        // arr.length : 문자열의 길이를 반환
+        // arr.toUpperCase() & arr.toLowerCase() : 문자열 전체를 대문자, 혹은 소문자로 변경
+        // arr.indexOf('') : 매개변수로 문자열을 받아서 몇번째 인덱스인지 숫자 반환
+        // arr.slice(startIdx[,endIdx]) : start 부터 end-1 까지 잘라서 빼옴(?). 매개변수로 음수값도 가능
+
+        let str = 'Happy Day ~!'
+        console.log("arr.length ", str.length); // 11
+
+        console.log("toUpperCase ", str.toUpperCase());
+        console.log("toLowerCase ", str.toLowerCase());
+
+        console.log("indexOf ", str.indexOf('D'));
+
+        console.log("split " + str.split(''));
+        console.log("split " + str.split(' '));
+
+        console.log("slice " + str.slice(3, 9));
+
+        //💡메서드 체이닝: 여러 메소드를 연결해서 사용하는 개념
+        console.log("메서드 체이닝 " + 'hello'.split(""));
+        console.log("메서드 체이닝 " + 'hello'.split("").reverse());
+        console.log("메서드 체이닝 " + 'hello'.split("").reverse().join(""));
+
+        function split() {
+            let arrr;
+            // 문자열을 자르는 코드
+            arrr = ["", "", ""];
+            return arrr
+        }
+
+    </script>
+</body>
+
+</html>
