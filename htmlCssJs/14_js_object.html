@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object 객체</title>
+</head>
+
+<body>
+    <script>
+        // 💡객체 Object
+        // 깊은 복사: '실제 값'을 새로운 메모리 공간에 복사
+        // 얕은 복사: '주소 값'을 복사
+
+        let num = 5;
+        let num2 = num; // 기본 자료형은 값을 복사
+        num2 += 5;
+        console.log(num, num2);
+
+        let arr = [1, 2, 3, 4, 5];
+        let arr2 = arr; // 객체는 주소값을 복사 -> arr와 arr2는 같은 공간을 바라보게 됨
+        // 따라서, arr를 바꾸면 arr2의 값도 바뀌게 됨
+
+        arr2.reverse();
+        console.log(arr); // [5, 4, 3, 2, 1]
+        console.log(arr2); // [5, 4, 3, 2, 1]
+
+        let arr3 = [1, 2, 3, 4];
+        // arr.slice(): 아무런 숫자가 없으므로 자르지 않는다는 뜻 -> 그대로 반환함
+        let arr4 = arr3.slice(); // 배열의 깊은 복사
+
+        console.log(arr3);
+        arr4.reverse()
+        console.log(arr4);
+
+        // 💡JavaScript 표준 객체
+        // 1️⃣Date 객체
+        let date = new Date("2023-09-22"); // 특정 날짜
+        console.log(date);
+
+        let date2 = new Date();
+        console.log(date2.getFullYear()); // 연도
+        console.log(date2.getDate()); // 날짜
+        console.log(date2.getDay()); // 요일
+        console.log(date2.getTime()); // 1970-01-01 부터 시간이 흘렀음. 단위는 밀리초
+        console.log(date2.getHours()); // 시간
+        console.log(date2.getMinutes()); // 분
+        console.log(date2.getSeconds()); // 시
+
+        let expired = new Date("2023-09-30");
+        let today = new Date().getTime(); // 오늘이 만료되었는가?
+
+        if(expired < today) {
+            console.log("만료일이 지났어요ㅜㅜ");
+        } else {
+            console.log("아직 만료일 전이에용");
+        }
+
+        // 2️⃣Math 객체
+        // 잘 안쓰여서 굳이 사용하진 않음
+
+    </script>
+</body>
+
+</html>
