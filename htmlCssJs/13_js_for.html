@@ -74,7 +74,7 @@
         }
         console.log("양수를 잘 입력하셨군요!")
 
-        // 💡continue; 반복문을 다음으로 넘기겠다는 뜻
+        // 💡continue: 반복문을 다음으로 넘기겠다는 뜻
         for (let i = 0; i < 10; i++) {
             if (i % 2 == 0) continue; // i가 짝수일 때 다음 반복으로 넘김
             console.log(i);
@@ -106,7 +106,6 @@
         // 함수: (재사용 가능성이 있는) 특정 기능을 묶어둔 것.
         // 메서드: 함수에 속하는 개념. 객체 내(class)에서 선언된 함수
 
-
         const cat = { // 배열 객체 선언
             name: "나비",
             age: 80,
@@ -115,7 +114,7 @@
             }
         }
 
-        cat.mew();
+        cat.mew(); // 야옹~!
 
 
         // forEach함수 문법: 배열.forEach()
@@ -123,6 +122,7 @@
         // 매개변수를 받음. 각각 순서대로 -> (탐색된 원소, 인덱스, 배열)
         let fruits2 = ["apple", "banana", "grape"];
         // 익명함수: 이름이 정의 되지 않은 함수
+        console.log("forEach 함수");
         fruits2.forEach((fruit, index, array) => {
             console.log(fruit)
             console.log(index)
@@ -136,13 +136,14 @@
         // })
 
 
-        // 💡배열의 기타 메서드 (꼭 코드 작성해보기!)
+        // 💡 배열의 기타 메서드 (꼭 코드 작성해보기!)
         // arr.filter()
         // arr.find()
         // arr.map()
 
 
-        // 💡배열 관련 메서드arr.push(): 배열 끝에 추가
+        // 💡 배열 관련 메서드
+        // arr.push(): 배열 끝에 추가
         // arr.pop(): 배열 끝 요소 제거
         // arr.shift(), arr.unshift(): 배열 앞에 제거/추가
         // arr.include(요소): 배열에 해당 요소가 있는지 확인
@@ -182,11 +183,11 @@
         console.log(["a", "p", "p", "l", "e"].join("")); // apple
         console.log(["a", "p", "p", "l", "e"].join(",")); // a,p,p,l,e    
 
-        // 💡문자열 관련 메서드
+        // 💡 문자열 관련 메서드
         // arr.length : 문자열의 길이를 반환
         // arr.toUpperCase() & arr.toLowerCase() : 문자열 전체를 대문자, 혹은 소문자로 변경
         // arr.indexOf('') : 매개변수로 문자열을 받아서 몇번째 인덱스인지 숫자 반환
-        // arr.slice(startIdx[,endIdx]) : start 부터 end-1 까지 잘라서 빼옴(?). 매개변수로 음수값도 가능
+        // arr.slice(startIdx, endIdx) : start 부터 end-1 까지 잘라서 빼옴(?). 매개변수로 음수값도 가능
 
         let str = 'Happy Day ~!'
         console.log("arr.length ", str.length); // 11
@@ -201,7 +202,7 @@
 
         console.log("slice " + str.slice(3, 9));
 
-        //💡메서드 체이닝: 여러 메소드를 연결해서 사용하는 개념
+        //💡 메서드 체이닝: 여러 메소드를 연결해서 사용하는 개념
         console.log("메서드 체이닝 " + 'hello'.split(""));
         console.log("메서드 체이닝 " + 'hello'.split("").reverse());
         console.log("메서드 체이닝 " + 'hello'.split("").reverse().join(""));

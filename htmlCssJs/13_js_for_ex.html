@@ -27,15 +27,15 @@
         for (let i = 2; i < 10; i++) {
             console.log(i + "단");
             for (let j = 1; j < 10; j++) {
-                console.log(j + "*" + i + "=" + j*i);
+                console.log(j + "*" + i + "=" + i*j);
             }
         }
 
         // 별 찍기
         let star = "";
         let number = Number(prompt("숫자를 입력하세요"))
-        for(let i = 1; i <= number; i++){
-            for(let j=1; j<=i; j++){
+        for(let i = 1; i <= number; i++){ // 열
+            for(let j=1; j<=i; j++){ // 행
                 star += "*";
             }
             star += "\n";
