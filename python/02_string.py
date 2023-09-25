@@ -68,7 +68,7 @@ print("나는 %s살입니다." %20)
 print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간"))
 
 # 방법 2
-print("나는 {}살입니다." .format(20)) # .format(n) n의 값을 {} 안에 넣음
+print("나는 {}살입니다." .format(20)) # .format(n) - n의 값을 {} 안에 넣음
 print("나는 {}색과 {}색을 좋아해요." .format("파란", "빨간"))
 print("나는 {0}색과 {1}색을 좋아해요." .format("파란", "빨간")) # {0} : 파란, {1} : 빨간
 print("나는 {1}색과 {0}색을 좋아해요." .format("파란", "빨간"))
@@ -81,3 +81,26 @@ print("나는 {age}살이며, {color}색을 좋아해요." .format(color = "파�
 age = 27
 color = "빨간"
 print(f"나는 {age}살이며, {color}색을 좋아해요.") # f 이용
+print()
+
+# ⭐ 탈출 문자
+print("탈출 문자")
+
+# \n - 문장 내 줄바꿈
+print("백문이 불여일견\n백견이 불여일타")
+
+# \" \" - 문장 내 따옴표
+print("저는 \"김수한무\"입니다")
+print("저는 \'삼천갑자\'입니다")
+
+# \\ - 하나의 역슬래시 \
+print("역슬래시\\역슬래시")
+
+# \r - 커서를 맨 앞으로 이동
+print("Red Apple\rPine")
+
+# \b - 백스페이스(한 글자 삭제)
+print("Redd\bApple")
+
+# \t - 탭 tab
+print("Red\tApple")
