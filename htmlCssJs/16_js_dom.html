@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document 객체</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 400px;
+            background-color: beige;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: rgb(255, 54, 54);
+        }
+
+        .orange {
+            background-color: rgb(255, 182, 45);
+        }
+
+        .yellow {
+            background-color: rgb(255, 255, 79);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box red"></div>
+        <div class="box orange"></div>
+        <div class="box yellow"></div>
+    </div>
+    <!-- input 태그를 선택해서 placeholder 속성을 추가 -->
+    <input type = "text" name = "name" />
+
+    <div>
+        <!-- onclick = "fucntion()" 속성 : 클릭할 때마다 함수를 실행 -->
+        <button type="button" onclick="twinkle()">반짝여라</button>
+        <button type="button" onclick="addPlacehodler()">placeholer추가</button>
+        <button type="button" onclick="addBox()">box 추가</button>
+        <button type="button" onclick="removeBox()">box 삭제</button>
+    </div>
+
+    <script>
+        const boxes = document.querySelectorAll(".box"); // box가 여러 개이므로 boxes
+        const box1 = boxes[0];
+        box1.innerHTML = "hello";
+
+        console.log(box1.classList);
+
+        function twinkle() {
+            // if (box1.classList.contains("red")) // red라는 class를 포함하고 있는가?
+            //     box1.classList.remove("red"); // red라는 class를 빼겠다
+            //     else box1.classList.add("red")
+
+            box1.classList.toggle("red") // toggle(" ") : 위 코드와 같음
+        }
+
+        // input 태그를 선택해서 placeholder 속성을 추가
+        const input = document.querySelector("input");
+        function addPlacehodler() {
+            input.setAttribute("placeholder", "이름을 입력하세요") // 요소의 속성을 변경함(직접 지정함)
+            input.setAttribute("id", "input_name")
+        }
+
+        // 특정 요소의 자식 요소들에 접근
+        const container = document.querySelector(".container");
+        console.log(container.children[1]) // container의 자식 요소 선택. children은 배열을 반환한다
+        
+        // 특정 요소의 부모 요소에 접근
+        console.log(box1.parentNode) // parentNode는 기본적으로 하나의 요소만 반환. parentNode는 배열을 반환
+        
+        // 특정 요소의 형제 요소에 접근
+        console.log(box1.nextElementSibling) // 다음 형제 요소 하나
+        console.log(boxes[1].previousElementSibling) // 이전 형제 요소 하나. box의 1번 인덱스에 접근
+        
+        // 새로운 box를 만드는 메서드
+        function addBox() {
+            // container를 선택을 해야겠죠?
+            const container2 = document.querySelector(".container");
+
+            // 추가할 새로운 요소를 만들어야겠죠? (createElement)
+            const newBox = document.createElement("div") // div 태그를 만듦
+            newBox.classList.add("box")
+            newBox.classList.add("red")
+            // newBox.className = "box red" // 위의 두 줄과 같음
+
+            // container의 마지막 자식으로 추가를 한다 (append, appendChild)
+            container2.appendChild(newBox); // node 객체만 인자로 넘길 수 있다
+            container2.append(newBox); // 문자열도 인자로 넘길 수 있다 (위의 코드와 같음)
+            // container2.append("newBox"); // 문자열을 인자로 넘기기 
+            
+            // container의 첫번째 자식으로 추가를 한다 (prepend)
+            container2.prepend(newBox);
+
+            // container의 형제로 추가를 한다 (before, after)
+            container2.before(newBox);
+            container2.after(newBox);
+        }
+
+        // box를 삭제하는 메서드
+        function removeBox() {
+            // 방법 1
+            // 삭제하고 싶은 요소 선택
+            const orangeBox = document.querySelector(".box.orange");
+            // 삭제한다
+            orangeBox.remove()
+
+            // 방법 2 (쓸 일이 거의 없음. 인덱스로만 접근 가능하고 선택해서 삭제가 불가능하기 때문)
+            // 삭제하고 싶은 요소의 부모 요소를 선택해서 자식으로 접근
+            // const container2 = document.querySelector(".container");
+            // container2.removeChild(container2.children[1]); // 1번 요소 삭제
+        }
+
+
+    </script>
+</body>
+
+</html>

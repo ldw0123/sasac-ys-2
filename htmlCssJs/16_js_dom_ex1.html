@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document 객체 실습 1</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h3>Document를 이용한 간단 계산기 만들기</h3>
+    <div>
+        <form>
+            값1: <input type="number" id="value1" /> <br />
+            값2: <input type="number" id="value2" /> <br />
+            연산자: <input type="text" id="operator" /> <br />
+            결과: <input type="text" id="result" readonly /> <br /><br />
+            <!-- readonly: 사용자가 값을 바꾸지 못하고 읽기만 할 수 있도록 함 -->
+
+        <button type="button" onclick="calculator()">계산하기</button>
+        <button type="button" onclick="clear_()">초기화</button>
+        <!-- <input type = "reset" value="초기화" /> : 이 코드 한 줄로 알아서 초기화할 수 있음--> 
+        </form>
+    </div>
+
+    <script>
+        // 계산기 함수
+        function calculator() {
+            // id 속성이 "value1"인 input값 가져와 변수에 넣기
+            const value1 = Number(document.getElementById("value1").value); // num으로 형변환 해야 함
+            const value2 = Number(document.getElementById("value2").value);
+            const operator = document.getElementById("operator").value;
+            let result = 0;
+
+            if (operator == "+") {
+                result = value1 + value2;
+            } else if (operator == "-") {
+                result = value1 - value2;
+            } else if (operator == "*") {
+                result = value1 * value2;
+            } else if (operator == "/") {
+                result = value1 / value2;
+            }
+            document.getElementById("result").value = result;
+        }
+
+        // 입력된 숫자를 초기화 하는 함수
+        function clear_() {
+            // id 속성이 "value1"인 input에 값 넣기
+            document.getElementById("value1").value = ""; // 빈 값 넣기
+            document.getElementById("value2").value = "";
+            document.getElementById("operator").value = "";
+            document.getElementById("result").value = "";
+        }   
+    </script>
+</body>
+
+</html>
