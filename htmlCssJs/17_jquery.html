@@ -38,13 +38,13 @@
 
 <body>
     <input type="text" name="name" id="input" value="lily" />
-    <button type="button" onclick="useVal()">val() 사용하기</button> <br/>
-    <button type="button" onclick="useAttr()">attr() 사용하기</button> <br/>
-    <button type="button" onclick="useText()">text() 사용하기</button> <br/>
+    <button type="button" onclick="useVal()">val() 사용하기</button> <br />
+    <button type="button" onclick="useAttr()">attr() 사용하기</button> <br />
+    <button type="button" onclick="useText()">text() 사용하기</button> <br />
 
-    <span id="span1">hello</span> <br/>
-    <span id="span2">bye</span> <br/>
-    <button type="button" onclick="useCss()">css() 사용하기</button> <br/><br/>
+    <span id="span1">hello</span> <br />
+    <span id="span2">bye</span> <br />
+    <button type="button" onclick="useCss()">css() 사용하기</button> <br /><br />
 
     <div class="container">
         <div class="box red" id="red"></div>
@@ -52,10 +52,10 @@
         <div class="box yellow"></div>
     </div>
     <button type="button" onclick="useAppend()">append() 사용하기</button>
-    <button type="button" onclick="useRemove()">remove() 사용하기</button> <br/>
-    <button type="button" onclick="useParent()">요소 탐색하기</button> <br/>
-    <button type="button" onclick="controlClass()">클래스 조작하기</button> <br/><br/>
-    
+    <button type="button" onclick="useRemove()">remove() 사용하기</button> <br />
+    <button type="button" onclick="useParent()">요소 탐색하기</button> <br />
+    <button type="button" onclick="controlClass()">클래스 조작하기</button> <br /><br />
+
     <script>
         // jQuery는 자바스크립트 문법이 아님! 라이브러리임
         // 기본 문법: $("선택자").동작함수
@@ -91,13 +91,13 @@
             $("#input").val(""); // 빈값으로 만들기
             $("#input").attr("placeholder", "이름을 입력하세요."); // placeholder 속성
             // js라면? -> setAttributes()
-            
+
         }
 
         function useText() {
             // innerText (js)
             $("#span1").text("helloooooooo");
-            
+
             // innerHTML (js)
             $("#span2").html("bye <b>lily</b>")
         }
@@ -116,7 +116,7 @@
             $(".container").after(`<div class="box red"></div>`)
         }
 
-        function useRemove() { 
+        function useRemove() {
             // box orange 삭제
             $(".box.orange").remove() // 자주 쓰임!!
 
@@ -142,9 +142,9 @@
             // 클래스 추가
             $(".box.red").addClass("")
             const redBox = $("#red")
-            
+
             // red 클래스가 있으면 제거, 없으면 추가
-            if(redBox.hasClass("red")) redBox.removeClass("red");
+            if (redBox.hasClass("red")) redBox.removeClass("red");
             else redBox.addClass("red")
 
             // 클래스 삭제
