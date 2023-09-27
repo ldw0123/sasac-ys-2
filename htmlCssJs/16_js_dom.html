@@ -40,7 +40,7 @@
         <div class="box yellow"></div>
     </div>
     <!-- input 태그를 선택해서 placeholder 속성을 추가 -->
-    <input type = "text" name = "name" />
+    <input type="text" name="name" />
 
     <div>
         <!-- onclick = "fucntion()" 속성 : 클릭할 때마다 함수를 실행 -->
@@ -75,14 +75,14 @@
         // 특정 요소의 자식 요소들에 접근
         const container = document.querySelector(".container");
         console.log(container.children[1]) // container의 자식 요소 선택. children은 배열을 반환한다
-        
+
         // 특정 요소의 부모 요소에 접근
         console.log(box1.parentNode) // parentNode는 기본적으로 하나의 요소만 반환. parentNode는 배열을 반환
-        
+
         // 특정 요소의 형제 요소에 접근
         console.log(box1.nextElementSibling) // 다음 형제 요소 하나
         console.log(boxes[1].previousElementSibling) // 이전 형제 요소 하나. box의 1번 인덱스에 접근
-        
+
         // 새로운 box를 만드는 메서드
         function addBox() {
             // container를 선택을 해야겠죠?
@@ -98,7 +98,7 @@
             container2.appendChild(newBox); // node 객체만 인자로 넘길 수 있다
             container2.append(newBox); // 문자열도 인자로 넘길 수 있다 (위의 코드와 같음)
             // container2.append("newBox"); // 문자열을 인자로 넘기기 
-            
+
             // container의 첫번째 자식으로 추가를 한다 (prepend)
             container2.prepend(newBox);
 
