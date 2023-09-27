@@ -76,6 +76,7 @@ print(3 + 4 == 7) # True
 print(1 != 3) # True
 print(not(1 != 3)) # False
 
+# and: 논리 연산자, &: 비트 연산자
 print((3 > 0) and (3 < 5)) # True
 print((3 > 0) & (3 < 5)) # True
 
