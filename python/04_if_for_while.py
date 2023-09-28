@@ -10,7 +10,7 @@ else:
 temp = int(input("기온은 어때요?"))
 if temp >= 30:
   print("너무 더워요 에어컨이 필요해요")
-elif temp >= 15 & temp  < 30:
+elif temp >= 15 and temp  < 30:
   print("완벽한 날씨에요!")
 elif -10 < temp < 15:
   print("외투를 챙기세요")
@@ -54,3 +54,33 @@ while person != customer2:
   if person != customer2:
     print("죄송합니다. 이 음료는 {0}님 것이 아니에요".format(person))
 print("{0}님, 맛있게 드세요".format(person))
+print()
+
+# 🌈 continue & break
+absent = [2, 5] # 결석
+phone = [8] # 수업중에 폰을 함
+for student in range(1, 11): # 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+  if student in absent: # absent라는 리스트 안에 student가 있는가?
+    continue # 반복문을 건너뜀
+  elif student in phone:
+    print("오늘 수업 여기까지. {0}는 교무실로 따라와".format(student))
+    break # 반복문을 탈출
+  print("{0}, 책을 읽어보렴".format(student))
+print()
+
+# 🌈 한 줄 for
+# 출석번호 1, 2, 3, 4. 앞에 100을 붙이기로 함 -> 101, 102, 103, 104...
+students = [1, 2, 3, 4, 5]
+print("before: {0}" .format(students))
+students = [i+100 for i in students] # students 리스트 안에 있는 i를 불러와 i+100 반복 실행하여 student 변수에 대입
+print("after: {0}" .format(students))
+
+# 학생 이름을 길이로 변환
+students = ["Iron man", "Thor", "I am groot"]
+students = [len(i) for i in students]
+print("학생들의 이름의 길이는?: {0}".format(students))
+
+# 학생 이름을 대문자로 변환
+students = ["Iron man", "Thor", "I am groot"]
+students = [i.upper() for i in students]
+print("학생들의 이름을 대문자로 하면?: {0}".format(students))
