@@ -59,7 +59,7 @@ print("{0:.3f}".format(5/3))
 print()
 
 # 🪐 파일 입출력
-# open("파일 이름.형식", "w: 쓰기 목적(덮어쓰기)", encoding="utf-8")
+# open("파일 이름.형식", "w: write. 쓰기 목적(덮어쓰기)", encoding="utf-8")
 score_file = open("score.txt", "w", encoding="utf8") # 파일 열기
 print("수학: 0점", file=score_file)
 print("영어: 50점", file=score_file)
@@ -104,4 +104,34 @@ score_file.close()
 print()
 print() 
 
-# 🪐 pickle
+# 🪐 pickle: 프로그램 상의 데이터(객체 자체)를 바이너리 타입 파일로 저장을 하는 것
+import pickle
+
+# "wb": 바이너리 타입으로 쓰기
+profile_file = open("profile.pickle", "wb") # pickle에서 인코딩 필요 없음
+profile = {"이름":"박명수", "나이":30, "취미":["축구", "골프", "코딩"]}
+print(profile)
+# profile에 있는 정보를 file에 저장
+pickle.dump(profile, profile_file)
+profile_file.close()
+
+# "rb": 바이너리 타입으로 읽어 옴
+profile_file = open("profile.pickle", "rb")
+# file에 있는 정보를 profile에 불러오기
+profile = pickle.load(profile_file) 
+print(profile)
+profile_file.close()
+
+# 🪐 with: close()필요 없이 자동 종료. 간단하게 코드를 작성할 수 있음
+import pickle
+
+# profile.pickle 파일을 열어서, profile_file이라는 변수로 저장
+with open("profile.pickle", "rb") as profile_file:
+  print(pickle.load(profile_file))
+
+with open("study.txt", "w", encoding="utf-8") as study_file:
+  study_file.write("파이썬을 열심히 공부하고 있어요")
+
+with open("study.txt", "r", encoding="utf-8") as study_file:
+  print(study_file.read())
+
