@@ -38,12 +38,15 @@ sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 # print(((A%C) * (B%C))%C)
 
 
-# 세 자리의 수 두개를 입력받는다
-a, b = map(int, input().split())
+vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] # 모음
 
-one = a[2] * b[2]
-ten = (a[1] * b[1]) + one
-hun = (a[0] * b[0]) + ten
+while True:
+  count = 0
+  sentence = input()
+  if sentence == '#':
+    break
+  for s in sentence:
+    if s in vowel:
+      count += 1
+  print(count)
 
-sum = one+ten+hun
-print(sum)
