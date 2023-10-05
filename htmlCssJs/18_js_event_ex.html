@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 리스너 실습</title>
+
+  <!-- 제이쿼리 스크립트 -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <style>
+    .sunday {
+      color: red;
+    }
+
+    .saturday {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  날짜 : <input type="text" id="date_1" value="" />
+  <br />
+  내용 : <input type="text" id="date_2" value="" />
+  <br />
+  <input type="button" class="bt" value="작성" />
+
+  <div style="color: green;">
+    <h1>2022년 7월</h1>
+  </div>
+  <table border="0" cellspacing="35" width="700px">
+    <tr>
+      <td class="sunday">日</td>
+      <td>月</td>
+      <td>火</td>
+      <td>水</td>
+      <td>木</td>
+      <td>金</td>
+      <td class="saturday">土</td>
+    </tr>
+    <tr>
+      <td class="sunday date"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td class="saturday">2</td>
+    </tr>
+    <tr>
+      <td class="sunday">3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td class="saturday">9</td>
+    </tr>
+    <tr>
+      <td class="sunday">10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td class="saturday">16</td>
+    </tr>
+    <tr>
+      <td class="sunday">17</td>
+      <td>18</td>
+      <td>19</td>
+      <td>20</td>
+      <td>21</td>
+      <td>22</td>
+      <td class="saturday">23</td>
+    </tr>
+    <tr>
+      <td class="sunday">24</td>
+      <td>25</td>
+      <td>26</td>
+      <td>27</td>
+      <td>28</td>
+      <td>29</td>
+      <td class="saturday">30</td>
+    </tr>
+    <tr>
+      <td class="sunday">31</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+  </table>
+
+
+  <script>
+    let date;
+
+    // 날짜 클릭 시 값 가져오기
+    $("td").on("click", function () { // td 태그에 클릭 이벤트 걸기
+      console.log(this); // event가 걸린 요소(클릭한 td 태그)를 this에 담기게 됨
+      $("#date_1").val(this.innerText) // 선택된 input 태그의 value로 가져온 날짜로 변경
+      // $("date").val($(this).text()) // 혹은 이 것도 가능 
+      date = this;
+    })
+
+    // value값 넣기
+    $(".bt").click(function addSchedule() {
+      let content = $("#date_2").val() // input의 value를 가져온다
+      console.log(this)
+      $(date).append(`<br/> ${content}`) // 내가 원하는 td 태그 선택
+      // date에 담겨 있는 td 태그에 내용 추가
+
+    })
+
+  </script>
+
+</body>
+
+</html>

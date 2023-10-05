@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 리스너</title>
+
+    <!-- 제이쿼리 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        // 아래 코드는 container클래스를 가진 div 태그가 로드되기 전에 실행을 하게 됨
+        console.log($(".container")) // 아무것도 선택되지 않은 상태로(빈 상태로) 나옴
+
+        // 로딩 이벤트: html, body 태그 내부까지 로드된 후 실행할 코드를 걸어준다
+        $(document).ready(function () { // document가 준비 되면. 핸들러(handler)
+            // body가 로드된 후 실행시키고 싶은 코드
+            console.log($(".container"));
+
+        })
+
+        // jQuery 3.0 이상부터 권장되는 방식. 익명함수를 사용함. 위의 코드와 동일
+        $(function () { // $(document).ready(function() {} 와 동일
+            // body가 로드된 후 실행시키고 싶은 코드
+            console.log($(".container"));
+        })
+
+
+    </script>
+
+    <style>
+        .container {
+            background-color: cadetblue;
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 로딩 이벤트: html이 로드된 후 실행할 코드를 걸어준다  -->
+    <div class="container"></div>
+
+    <div class="container"></div>
+    <br />
+
+    <input type="password" name="pw" />
+
+    <script>
+        console.log(window) // window : js에 설정된 객체
+        // CS지식 : 동적 바인딩, 정적 바인딩
+
+        // 화살표 함수: 정적 바인딩
+        // 정적 바인딩: 호출한 부분에 관계 없이 함수가 읽힌 순간, this를 결정하게 됨
+        // 부모(여기선 window)에 있는 this가 선택이 되기 때문에 화살표 함수 안 쓰는 편이 좋음
+
+        // function 함수: 동적 바인딩
+        // 동적 바인딩: 호출할 때를 고려해서 this를 결정하게 됨
+        // 이 익명함수 속의 this를 선택해서 결정할 수 있음 (이벤트를 발생시킨 요소)
+
+        $(".container").click(function () { // 클릭했을 때 
+            console.log(this); // event가 걸린 요소(클릭한 div 태그)를 this에 담기게 됨
+            $(this).css("background-color", "green"); // 선택한 css 속성값이 바뀜
+            // $(".container").css("background-color", "green"); // 모든 css 속성값이 바뀜
+        })
+
+        // .container요소에 마우스가 올라갔을 때, 실행시키고 싶은 코드
+        $(".container").mouseover(function () { })
+
+        // .container요소에서 마우스가 나갔을 때, 실행시키고 싶은 코드
+        $(".container").mouseout(function () { })
+
+        // hover : mouseover / mouseout을 한 번에 지정
+        $(".container").hover(function () {
+            // 마우스가 들어갔을 때
+
+        }, function () {
+            // 마우스가 나갔을 때
+
+        })
+
+        // 스크롤이 발생할 때
+        // $(document).scroll(function() {}) : document 객체를 안에 넣음
+        $(document).scroll(function () { // js 문법
+            if (document.body.scrollHeight >= "스크롤 위치") {
+                // 하고 싶은 동작
+            }
+            console.log(document.body.scrollHeight);
+            console.log("스크롤 이벤트 발생~!");
+        })
+
+        $(document).scroll(function () {
+            // 스크롤이 바닥에 도달했을 때
+            // $(document).height() : document의 높이를 구함
+            // 현재 스크롤 위치: $(window).scrollTop()
+            if ($(document).height() - $(window).height() == $(window).scrollTop()) {
+                // document의 높이(body태그 내용의 높이) - 화면의 높이 == 현재 스크롤 위치
+                console.log("hello");
+            }
+            console.log(document.body.scrollHeight);
+            console.log("스크롤 이벤트 발생~!");
+        })
+
+        // keydown : 선택한 요소에서 키보드를 누르는 이벤트가 발생할 경우
+        // keyup : 선택한 요소에서 키보드를 떼는 이벤트가 발생할 경우
+        $("input[name=pw]").keydown(function (event) {
+            console.log("key: ", event.key) // input태그의 키를 가져오겠다는 의미
+
+            if (event.key == "Enter") { // Enter키를 누르면
+                console.log("value: ", this.value) // input태그의 값을 가져오겠다는 의미
+            }
+
+            if (event.keyCode == 13) { // Enter키를 누르면 (Enter의 키코드: 13)
+                console.log("value: ", this.value) // input태그의 값을 가져오겠다는 의미
+            }
+        })
+
+        // on() : 이벤트를 걸겠다. 여러 개의 이벤트를 같이 연결할 수 있음 
+        // $("선택자").on("이벤트 타입", "핸들러 함수");
+        // 위와 동일한 코드
+        $("input[name=pw]").on("keyup", function (event) { // on
+            console.log("key: ", event.key)
+            if (event.key == "Enter") console.log("value: ", this.value); // login();
+            // if(event.keyCode == 13) console.log("value: ", this.value); 
+        });
+
+
+        // 바닐라 JS (JS 이벤트 리스너)
+        const container = document.getElementsByClassName("container")
+
+        // addEventListener : jQuery의 on과 비슷
+        // container[0].addEventListener("click", function () {
+        //     this.style.backgroundColor = "red"; // 첫 번째 container를 클릭하면 빨간색으로 바뀜 (하나의 요소)
+        // })
+
+        // container[1].addEventListener("click", function () {
+        //     this.style.backgroundColor = "yellow"; // 두 번째 container를 클릭하면 노란색으로 바뀜 (하나의 요소)
+        // })
+
+        for (let i = 0; i < container.length; i++) {
+            container[i].addEventListener("click", function () {
+                this.style.backgroundColor = "red"; // for문을 이용하여 모든 요소를 다 바꿈
+            })
+        }
+
+    </script>
+</body>
+
+</html>
