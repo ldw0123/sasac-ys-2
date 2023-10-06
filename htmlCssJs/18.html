@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <!-- 주석 작성 -->
+    <span id="span1">1</span>
+    <span id="span2">2</span>
+    <span id="span3">3</span>
+  </div>
+  <script>
+    const box = document.querySelector(".box");
+    const span1 = document.querySelector("#span1");
+    const span2 = document.querySelector("#span2");
+
+    console.log(span1.nextElementSibling);
+    console.log(span2.previousElementSibling);
+  </script>
+
+</body>
+
+</html>
