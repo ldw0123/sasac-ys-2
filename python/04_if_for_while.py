@@ -22,10 +22,11 @@ print()
 for waiting_no in [0, 1, 2, 3, 4]:
   print("대기번호 1팀: {0}".format(waiting_no))
 
-# for ~ in range(시작 숫자, 끝 숫자):
+# for ~ in range(n) : 0부터 n-1까지 반복
 for waiting_no2 in range(5): # 0, 1, 2, 3, 4
   print("대기번호 2팀: {0}".format(waiting_no2))
 
+# for ~ in range(시작 숫자, 끝 숫자) : 시작 숫자 ~ 끝 숫자-1 반복
 for waiting_no3 in range(3, 8): # 3, 4, 5, 6, 7
   print("대기번호 3팀: {0}".format(waiting_no3))
 print()

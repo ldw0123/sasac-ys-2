@@ -6,38 +6,21 @@ sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 
 # 이 파일은 코딩테스트 연습장 입니다.
 
-# 두 정수 A와 B를 입력받습니다.
-# A, B = map(int, input().split())
-
-# # 사칙연산
-# print(A + B)
-# print(A - B)
-# print(A * B)
-# print(int(A / B))
-# print(A % B)
-
+# A+B (1000)
 '''
-(A+B)%C는 ((A%C) + (B%C))%C 와 같을까?
+A, B = map(int, input().split()) # 두 정수 A와 B를 입력받습니다.
 
-(AxB)%C는 ((A%C) x (B%C))%C 와 같을까?
-
-세 수 A, B, C가 주어졌을 때, 위의 네 가지 값을 구하는 프로그램을 작성하시오.
+# 사칙연산
+print(A + B)
+print(A - B)
+print(A * B)
+print(int(A / B))
+print(A % B)
 '''
 
-# 세 수를 입력받는다
-# A,B,C = input().split()
 
-# # int로 형변환
-# A = int(A) 
-# B = int(B)
-# C = int(C)
-
-# print((A+B)%C)
-# print(((A%C) + (B%C))%C)
-# print((A*B)%C)
-# print(((A%C) * (B%C))%C)
-
-
+# 모음의 개수 (1264)
+'''
 vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] # 모음
 
 while True:
@@ -49,4 +32,48 @@ while True:
     if s in vowel:
       count += 1
   print(count)
+'''
 
+
+# 핸드폰 요금 (1267)
+'''
+n = int(input()) # 저번 달에 이용한 통화의 수
+call = list(map(int, input().split())) # 통화 시간을 리스트 형식으로 입력받음
+
+y = 0 # 영식 요금제
+m = 0 # 민식 요금제
+
+for i in call:
+    y += (i//30+1)*10 # 영식 요금제: 30초마다 10원
+    m += (i//60+1)*15 # 민식 요금제: 60초마다 15원
+
+if y > m: # 민식 요금제가 더 저렴하다면
+    print('M', m)
+elif y < m: # 영식 요금제가 더 저렴하다면
+    print('Y', y)
+else: # 요금이 같다면
+    print('Y', 'M', y)
+'''
+
+
+# 별찍기 1 (2438)
+# 풀이 1
+
+star = ""
+number = int(input(""))
+
+# for ~ in range(n) : 0부터 n-1까지 반복
+for i in range(number): # 열
+  for j in range(i+1): # 행. 1 ~ number까지 반복
+    star += "*"
+  star += "\n"
+print(star)
+
+
+# 풀이 2
+'''
+number = int(input(""))
+
+for i in range(1, number+1): # 1부터 number까지 반복
+    print("*" * i)
+'''
