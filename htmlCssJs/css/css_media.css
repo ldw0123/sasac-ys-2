@@ -1,0 +1,62 @@
+.container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  /* css 변수 사용 */
+  margin-top: var(--height-header-lg);
+  background-color: var(--color-main);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.red {
+  background-color: rgb(255, 67, 67);
+}
+
+.orange {
+  background-color: rgb(255, 187, 59);
+}
+
+.yellow {
+  background-color: rgb(255, 255, 59);
+}
+
+/* @media 미디어유형 and (크기 규칙) */
+/* screen : 모든 기기들의 화면 */
+@media screen and (max-width: 500px) {
+  .container {
+    flex-direction: column; /* 세로 */
+  }
+}
+
+@media screen and (min-width: 800px) {
+  /* 700px 이상일 경우 */
+  .container {
+    background-color: rgb(0, 137, 0);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /* 700px 이하일 경우 */
+  .yellow {
+    background-color: rgb(26, 208, 189);
+  }
+}
+
+/* print : 인쇄 설정 */
+@media print {
+  .container {
+    background-color: rgb(59, 59, 255);
+  }
+}
+
+/* :root - 모든 곳에 선언을 하겠다는 뜻 */
+:root {
+  /* css 변수 선언 */
+  --color-main: rgb(210, 210, 196);
+  /* header의 높이 지정 */
+  --height-header-lg: 80px;
+}

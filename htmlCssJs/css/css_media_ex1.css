@@ -1,0 +1,73 @@
+/* 실습 1 미디어 쿼리 사용하기 */
+
+.text {
+  background-color: rgb(1, 122, 1);
+}
+
+/* 화면 넓이가 500px 이상일 때 */
+@media screen and (min-width: 500px) {
+  .bd {
+    background-color: skyblue;
+  }
+}
+
+/* 화면 넓이가 300~500px 사이일 경우 */
+@media screen and (max-width: 500px) {
+  .bd {
+    background-color: transparent;
+  }
+}
+
+/* 화면 넓이가 300px 이하일 경우 */
+@media screen and (max-width: 300px) {
+  .bd {
+    background-color: rgb(255, 186, 58);
+  }
+}
+
+/* 화면 높이가 300px 이하일 경우 */
+@media screen and (max-height: 300px) {
+  .bd {
+    background-color: transparent;
+  }
+
+  .text {
+    background-color: transparent;
+  }
+}
+
+/* 화면 높이가 500px 이상일 경우 */
+@media screen and (min-height: 500px) {
+  .bd {
+    background-color: rgb(113, 188, 113);
+  }
+}
+
+/* 실습 2 크기에 따라 자리 바꾸기 */
+
+.container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin-right: 20px;
+  border: 1px solid rgb(253, 79, 79);
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 700px) {
+  .box {
+    background-color: rgb(128, 73, 223);
+    margin-bottom: 20px;
+    border: 1px solid rgb(253, 79, 79);
+    border-radius: 5px;
+  }
+  .container {
+    flex-direction: column; /* 세로 */
+  }
+}
