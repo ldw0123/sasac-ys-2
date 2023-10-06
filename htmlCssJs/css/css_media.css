@@ -24,6 +24,10 @@
   background-color: rgb(255, 255, 59);
 }
 
+.fa-igloo {
+  margin-top: 100px;
+}
+
 /* @media 미디어유형 and (크기 규칙) */
 /* screen : 모든 기기들의 화면 */
 @media screen and (max-width: 500px) {

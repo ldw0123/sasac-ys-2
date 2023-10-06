@@ -42,6 +42,12 @@ header .inner .menu {
 
 header .inner .menu li {
   margin-right: 10px;
+  margin-top: 30px;
+}
+
+header .inner .logo i {
+  margin-top: 30px;
+  margin-right: 100px;
 }
 
 /* 미디어 쿼리 작성 넓이가 768px 이하일 때  */
