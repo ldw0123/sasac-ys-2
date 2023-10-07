@@ -1,4 +1,6 @@
+/* :root - 모든 곳에 선언을 하겠다는 뜻 */
 :root {
+  /* css 변수 선언 */
   --nav-height-lg: 100px;
   --nav-height-sm: 60px;
 }
@@ -23,52 +25,63 @@ header {
 
 /* 768px 보다 클때의 header */
 header .inner {
+  position: relative;
   background-color: lightblue;
   height: 100%;
+  display: flex;
+  /* 세로축 가운데 정렬 */
+  align-items: center;
+  /* 가로축 가운데 정렬 */
+  justify-content: center;
 }
 
 /* LOGO */
 header .inner .logo {
   color: white;
   font-size: 30px;
+  /* absolute: 부모 요소를 기준으로 배치 */
+  position: absolute;
+  left: 50px;
 }
 
 header .inner .menu {
   display: flex;
-  /* 중앙 정렬 */
-  justify-content: center;
-  font-weight: bold;
 }
 
 header .inner .menu li {
-  margin-right: 10px;
-  margin-top: 30px;
+  margin: 0 15px;
+  font-weight: 800;
+  /* 마우스 클릭이 되도록 */
+  cursor: pointer;
 }
 
-header .inner .logo i {
-  margin-top: 30px;
-  margin-right: 100px;
-}
-
-/* 미디어 쿼리 작성 넓이가 768px 이하일 때  */
+/* 미디어 쿼리 작성 768px 이하일 때  */
 @media screen and (max-width: 768px) {
+  header {
+    height: var(--nav-height-sm);
+  }
+
   header .inner .menu {
-    flex-direction: column; /* 세로 */
-    font-weight: normal;
-    margin-top: 60px;
-    background-color: rgb(234, 234, 234);
+    /* display 속성이 block인 엘리먼트는 전후 줄바꿈이 들어가 혼자 한 줄을 차지함 */
+    display: block;
+    text-align: center;
+    background-color: aliceblue;
+  }
+
+  header .inner {
+    display: block;
   }
 
   header .inner .logo {
+    /* 정적 위치 지정 방식 */
+    position: static;
+    height: 100%;
+    line-height: var(--nav-height-sm);
+    /* 로고를 가운데 정렬 */
     text-align: center;
   }
 
   header .inner .menu li {
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  header {
-    height: 60px;
+    padding: 10px;
   }
 }

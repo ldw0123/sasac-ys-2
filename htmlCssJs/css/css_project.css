@@ -1,0 +1,57 @@
+:root {
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 화면 왼쪽에 보이는 정보창 */
+.info {
+  position: fixed;
+  width: 17%;
+  height: 100%;
+  background-color: rgb(243, 242, 240);
+}
+
+.info h2 {
+  position: absolute;
+  color: rgb(88, 88, 88);
+  font-weight: 800;
+  font-family: serif;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.info .menu {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  /* cursor: pointer; */
+}
+
+.info .menu span {
+  cursor: pointer;
+}
+
+.info .menu ul {
+  position: absolute;
+  top: 70px;
+  list-style: none;
+  cursor: pointer;
+}
+
+/* 메인 화면의 이미지 */
+.main {
+  position: relative;
+  margin-left: 300px;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(160, 255, 255);
+}
+
+.main img {
+  position: absolute;
+  width: 50px;
+  margin: 50px;
+}
