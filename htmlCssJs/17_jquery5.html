@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jQuery 코딩온 강의</title>
+
+  <style>
+    body {
+      height: 1500px;
+    }
+
+    p {
+      position: fixed;
+    }
+
+    .a {
+      position: relative;
+      top: 50px;
+    }
+
+    .hover {
+      background-color: crimson;
+    }
+  </style>
+
+  <script>
+    // 이벤트 리스너 : 이벤트가 발생했을 때 그 처리를 담당하는 함수
+    // 로딩 이벤트 : ready() / ${}
+    $(window).ready(function () {
+      // p 태그 안에 없던 텍스트가 DOM 요소가 로드된 후 추가 됨
+      $("p").text("ready 메서드 실행");
+    });
+  </script>
+</head>
+
+<body>
+  <p></p>
+  <div class="a">
+    <button>button</button>
+    <input type="text" placeholder="이벤트 리스너" />
+  </div>
+
+  <script>
+    // 💡 로딩 이벤트 : $(선택자).ready() / ${}
+    // 아래 3개의 이벤트 모두 DOM 요소가 불러와진 후에 실행
+    $(window).ready(function () {
+      console.log("로드 완료1");
+    });
+    $(function () {
+      console.log("로드 완료3");
+    });
+    $(document).ready(function () {
+      console.log("로드 완료2");
+    });
+
+    // 💡 마우스 이벤트 : click() / mouseover() / hover() / scroll()
+
+    // $(선택자).click() : 버튼을 클릭하면 click() 메서드가 실행
+    $("button").click(function () {
+      alert("click");
+    });
+
+    // $(선택자).mouseover() : input창에 마우스를 올렸을 때 mouseover() 메서드가 실행
+    $("input").mouseover(function () {
+      alert("mouseover");
+    });
+
+    // $(선택자).hover() : mouseover()와 달리 마우스를 올렸을 때와 떼었을 때의 명령을 실행
+    $("button").hover(
+      function () {
+        $(this).addClass("hover");
+      },
+      function () {
+        $(this).removeClass("hover");
+      }
+    );
+
+    // $(선택자).scroll() : 가로, 세로 스크롤을 기준으로 스크롤을 할 경우 지정한 함수가 실행
+    // 상단을 기준으로 세로 스크롤 길이를 기준으로 배경색이 변경되게 함
+    $(window).scroll(function () {
+      if ($(document).scrollTop() > 50) {
+        $("p").css("backgroundColor", "green");
+      } else {
+        $("p").css("backgroundColor", "red");
+      }
+    });
+
+    // 💡 키보드 이벤트 메서드 : keyup() / keydown()
+
+    // $(선택자).keyup(함수) : 키를 뗐을 때 실행
+    $("input").on("keyup", function (e) {
+      console.log(e);
+      console.log(e.key);
+      console.log(e.keyCode); // keyCode : 각 키가 가진 값
+      console.log(e.currentTarget);
+      console.log(e.currentTarget.value);
+    });
+
+    // $(선택자).keydown(함수) : 키를 눌렀을 때 실행
+    $("input").on("keydown", function (e) {
+      console.log(e);
+      console.log(e.key);
+      console.log(e.keyCode);
+      console.log(e.currentTarget);
+      console.log(e.currentTarget.value);
+    });
+    $;
+
+  </script>
+</body>
+
+</html>

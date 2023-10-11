@@ -2,19 +2,85 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>jQuery 코딩온 강의</title>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
 
-  <style>
+  <script>
+    // 💡 요소 탐색 메서드
+    // $(선택자).parent() : 부모 요소를 반환
+    // $(선택자).parents() : 모든 조상 요소를 반환
+    // $(선택자).next() : 선택 요소 바로 다음 형제 요소를 반환
+    // $(선택자).prev() : 선택 요소 바로 이전 형제 요소를 반환
+    // $(선택자).children() : 모든 자식 요소들을 반환
 
-  </style>
+    function findParent() {
+      // $(선택자).parent() : 부모 요소를 반환
+      console.log($(".child2").parent());
+      // 부모 요소로 클래스 parent가 선택됨
+      console.log($(".child2").parent()[0]);
+
+      // 선택한 요소의 부모 요소 스타일을 변경
+      $(".child2").parent().css("color", "red");
+    }
+
+    function findParents() {
+      // $(선택자).parents() : 조상 요소를 모두 반환
+      // 부모와 조상 요소로 parent, ancestor, body, html 이 선택됨
+      console.log($(".child2").parents());
+
+      // 선택한 요소의 조상 요소 스타일을 변경
+      $(".child2").parents().css("color", "skyblue");
+      console.log($(".child2").parents()[1]);
+    }
+
+    function findNext() {
+      // $(선택자).next() : 내 다음 형제를 보는 친구
+      // document의 nextElementSibling과 동일
+      console.log($(".child2").next());
+      console.log($(".child2").next()[0]);
+      $(".child2").next().css("color", "orange");
+    }
+
+    function findPrev() {
+      // $(선택자).prev() : 내 이전 형제를 보는 친구
+      // document의 previousElementSibling과 동일
+      console.log($(".child3").prev());
+      console.log($(".child3").prev()[0]);
+      $(".child3").prev().css("color", "blue");
+    }
+
+    function findChildren() {
+      // $(선택자).children() : 부모 요소를 선택했을 때 그 자식 요소들을 반환
+      // document의 children과 동일
+      console.log($(".parent").children());
+      console.log($(".parent").children()[0]);
+      // parent 클래스를 갖는 div태그의 모든 자식 요소들을 반환
+      $(".parent").children().css("color", "blueviolet");
+    }
+  </script>
 </head>
 
 <body>
+  <h5>요소 탐색</h5>
+  <div class="ancestor">
+    <div class="parent">
+      <div class="child1">자식1</div>
+      <div class="child2">자식2</div>
+      기준!
+      <div class="child3">자식3</div>
+    </div>
+  </div>
 
+  <br />
+  <hr /><br />
+  <button onclick="findParent()">findParent</button>
+  <button onclick="findParents()">findParents</button>
+  <button onclick="findNext()">findNext</button>
+  <button onclick="findPrev()">findPrev</button>
+  <button onclick="findChildren()">findChildren</button>
 </body>
 
 </html>
