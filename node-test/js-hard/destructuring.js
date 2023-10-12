@@ -51,3 +51,27 @@ console.log('arr3', arr3);
 // hello = ['h', 'e', 'l', 'l', 'o']
 const hello = [...'hello'];
 console.log('hello', hello);
+
+const obj2 = {
+  name: 'lily',
+  gender: '여',
+  age: 99,
+};
+
+const obj3 = {
+  ...obj2,
+  test: 'test', // key, value 추가
+};
+
+console.log('obj3', obj3);
+console.log('\n');
+
+// ⭐ rest 파라미터
+const values = [10, 20, 30, 40];
+function get(a, ...rest) {
+  console.log('a', a); // 10
+  // ...rest에 남은 인자들이 배열 형태로 들어 옴
+  console.log('rest', rest); // [20, 30, 40]
+}
+
+get(...values);
