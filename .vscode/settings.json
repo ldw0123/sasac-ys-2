@@ -1,6 +1,12 @@
 {
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
-    },
-    "python.formatting.provider": "none"
+  "emmet.includeLanguages": {
+    "ejs": "html"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "j69.ejs-beautify"
+  },
+  "js-beautify.extra_liners": [],
+  "js-beautify.indent_inner_html": true,
+  "js-beautify.indent_handlebars ": false,
+  "html.format.extraLiners": ""
 }

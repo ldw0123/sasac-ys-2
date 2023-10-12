@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejs</title>
+  </head>
+
+  <body>
+    <!-- index.js에서 객체로 값을 보냈기 때문에, ejs 변수를 사용할 수 있음 -->
+    <%=name %><br>
+    <%=product %>
+
+    <!-- ejs 문법. javascript를 사용할 수 있음-->
+    <!-- ejs 태그 안에 오는 javascript 코드는 한 줄로 끝나야 함 -->
+    <!-- ejs 태그 안에 바로 '=' 이 오면 '=' 뒤에 있는 변수나 값을 html로 출력한다 -->
+    <% for(let i = 0; i < product.length; i++) { %>
+    <div>상품 <%= product[i] %></div>
+    <!-- 중괄호 닫기 -->
+    <% } %>
+
+    <!-- ejs 태그 안에 바로 '=' 이 오면 '=' 뒤에 있는 변수나 값을 html로 출력한다 -->
+    <%= "hello lily" %><br>
+    <!-- ejs 태그 안에 바로 '-' 이 오면 '-' 뒤에 있는 변수나 값을 html로 출력한다 (html 태그를 인식함) -->
+    <%= "<div>안녕?</div>" %><br>
+    <%- "<div>안녕?</div>" %><br>
+
+    <!-- index.ejs를 포함시킴 -->
+    <%- include("index.ejs") %>
+    <%- include("header.ejs") %>
+
+    <script>
+      // 백엔드에서 넘겨준 product라는 변수는 esj 태그 내에서만 사용할 수 있는 변수!
+      // console.log(product); 오류발생!
+    </script>
+  </body>
+
+</html>

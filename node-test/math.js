@@ -12,7 +12,7 @@ const PI = 3.14
 
 // module.exports = add;
 
-// const data = {
+// const data = {s
 //   add: add,
 //   minus: minus,
 //   PI: PI
