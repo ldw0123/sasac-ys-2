@@ -7,6 +7,5 @@
   },
   "js-beautify.extra_liners": [],
   "js-beautify.indent_inner_html": true,
-  "js-beautify.indent_handlebars ": false,
-  "html.format.extraLiners": ""
+  "js-beautify.indent_handlebars ": false
 }
