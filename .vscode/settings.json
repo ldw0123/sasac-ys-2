@@ -7,5 +7,9 @@
   },
   "js-beautify.extra_liners": [],
   "js-beautify.indent_inner_html": true,
-  "js-beautify.indent_handlebars ": false
+  "js-beautify.indent_handlebars ": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "python.formatting.provider": "none"
 }
