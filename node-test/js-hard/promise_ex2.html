@@ -1,0 +1,48 @@
+<!-- 콜백지옥으로 작성한 배경색 변경 코드를 Promise를 이용해 변경하기 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <script>
+      function changeColor(color) {
+        return new Promise(function(resolve) {
+          setTimeout(function() {
+            document.body.style.backgroundColor = color;
+            resolve()
+          }, 1000)
+        })
+      }
+
+      changeColor("red")
+        .then(() => {
+          return changeColor("orange")
+        })
+        .then(() => {
+          return changeColor("yellow")
+        })
+        .then(() => {
+          return changeColor("green")
+        })
+        .then(() => {
+          changeColor("blue")
+        })
+
+
+      async function exec() {
+        await changeColor("red");
+        await changeColor("orange");
+        await changeColor("yellow");
+        await changeColor("green");
+        await changeColor("blue");
+      }
+
+      // exec()
+    </script>
+  </body>
+</html>
