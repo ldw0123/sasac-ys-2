@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <!-- ----------- get 요청 ----------- -->
+  <h1>로그인 get 요청</h1>
+  <!-- 💡 form 전송 : 클라이언트가 서버측에 데이터를 보낼 때 사용하는 방법 중 하나 -->
+  <!-- action : 요청을 보낼 주소 (제 서버에 보낸다라는 가정 하에 도메인을 뗀 나머지 주소) -->
+  <!-- ex) localhost:8000/get/test 이라는 곳으로 보내고 싶다면 action = "/get/test" -->
+  <!-- method : 어떤 방식의 요청을 사용할 지 (get or post) -->
+
+  <!-- /get이라는 주소의 API를 하나 생성 -->
+  <!-- get이라는 주소로 요청을 받는다는 뜻 -->
+  <!-- target="_black" name="login"은 부가적인 속성들 -->
+  <form action="/get" method="get" target="_black" name="login">
+    <fieldset>
+      <legend>로그인 정보</legend>
+      <input type="text" name="id" />
+      <input type="password" name="pw" />
+    </fieldset>
+    <!-- <label for=" "> : 남자라는 글씨를 클릭해도 체크가 된다. input 태그의 id와 label 태그의 for의 값은 일치돼야 함 -->
+    <input type="radio" name="gender" value="남자" id="men" /> <label for="men">남자</label>
+    <input type="radio" name="gender" value="여자" id="women" /> <label for="women">여자</label>
+    <!-- button type은 submit이 기본값! submit은 form태그의 안의 정보를 제출하는 기능을 함 -->
+    <button type="submit">제출</button>
+  </form>
+
+  <script>
+    // console.dir() : 속성값을 객체 형태로 보여줌
+    console.dir(document.forms["login"])
+    // form 태그의 login을 선택
+    document.forms["login"]
+  </script>
+
+  <h1>회원가입 get 요청</h1>
+  <form action="/get" method="get">
+    <input type="text" name="id" />
+    <input type="password" name="pw" />
+    <input type="text" name="name" />
+    <input type="password" name="email" />
+    <button type="submit">제출</button>
+  </form>
+
+  <!-- ----------- post 요청 ----------- -->
+  <h1>회원가입 post 요청</h1>
+  <form action="/post/ver2" method="post">
+
+    <!-- 💡 유효성 검사 form validation -->
+    <!-- patter 정규식 사용 -->
+    <input type="text" name="name" placeholder="이름" pattern="^([a-zA-Z0-9가-힣]){4,12}$" title="소문자, 대문자, 한글, 숫자로 조합된 4~12자리로 입력" />
+
+    <div id='error-pw'></div>
+
+    <!-- required :  name을 작성하지 않으면 넘어가지 않음 -->
+    <input type="number" placeholder="num" min="5" max="10" required />
+
+    <!-- minlength : 최소 입력 문자 수 -->
+    <input type="password" name="password" placeholder="비밀번호" minlength="8" oninput="validCheckPw(this)" />
+    <!-- 태그 자체가 this에 담겨서 인자로 넘어가게 됨 -->
+
+    <button type="submit">제출</button>
+  </form>
+
+
+  <script>
+    // 유효성 검사 응용
+    function validCheckPw(el) { // this를 el로 받음
+      // 정규식을 자바스크립트에 담고 싶으면 / / 사이에 넣으면 됨
+      const regexPw = /^([a-zA-Z0-9가-힣]){8,12}$/
+      const value = el.value // el의 값을 value에 저장
+      const error = document.getElementById("error-pw")
+      //  regexPw.test() : boolean 값을 반환
+      if (regexPw.test(value)) {
+        console.log('정규식 일치')
+      } else {
+        error.innerHTML = "소문자, 대문자, 한글, 숫자로 조합된 8~12자리로 입력"
+        console.log('정규식 불일치')
+      }
+    }
+  </script>
+
+  </body>
+</html>
