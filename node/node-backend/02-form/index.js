@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 8000;
+
 app.set('view engine', 'ejs');
 
 // 💡 body-parser
@@ -60,5 +61,5 @@ app.post('/post/ver2', function (req, res) {
 
 // app.listen이 있어야 서버가 켜짐!
 app.listen(PORT, function () {
-  console.log(`server Open: ${PORT}`);
+  console.log(`server open: ${PORT}`);
 });
