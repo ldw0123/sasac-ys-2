@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드 실습</title>
+
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h2>파일 업로드 실습</h2>
+    <form action="/upload/detail" method="post" enctype="multipart/form-data">
+      <input type="text" name="id" placeholder="아이디" /><br />
+      <input type="text" name="pw" placeholder="비밀번호" /><br />
+      <input type="text" name="name" placeholder="이름" /><br />
+      <input type="text" name="age" placeholder="나이" /><br />
+      <input type="file" name="profile" multiple /><br /><br />
+      <button type="submit">회원가입</button>
+    </form><br /><br />
+
+    <h2>동적 폼 전송(axios)를 이용한 파일 업로드 실습</h2>
+    <form name="dynamic-upload">
+      <input type="text" name="id" placeholder="아이디" /><br />
+      <input type="text" name="pw" placeholder="비밀번호" /><br />
+      <input type="text" name="name" placeholder="이름" /><br />
+      <input type="text" name="age" placeholder="나이" /><br />
+      <input type="file" name="profile" /><br /><br />
+      <!-- button type을 꼭 "button"으로!-->
+      <button type="button" onclick="dynamicUpload()">회원가입(동적 폼 전송)</button>
+    </form>
+
+    <div id="dynamic-upload-result"></div>
+    <div class="axios-profile"></div>
+
+    <script>
+      function dynamicUpload() {
+        const form = document.forms["dynamic-upload"];
+
+        const formData = new FormData();
+        formData.append("id", form.title.value)
+        formData.append("pw", form.title.value)
+        formData.append("name", form.title.value)
+        formData.append("age", form.title.value)
+
+        console.log("files", form.userfile.files)
+        formData.append("userfile", form.userfile.files[0])
+
+        axios({
+          method: "post",
+          url: "/upload/dynamic",
+          data: formData,
+          headers: {
+            "Content-type": "multipart/form-data"
+          }
+        }).then((res) => {
+          console.log(res.data);
+          const result = document.getElementById("dynamic-upload-result");
+          result.innerHTML = `<img src="/${res.data.src}" width="150"/>`
+
+          const id = document.getElementById("id").value;
+          result.innerHTML += `아이디: ${id}`;
+        })
+      }
+    </script>
+  </body>
+</html>
