@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>파일 업로드</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 결과 예시</title>
+    <link rel="stylesheet" href="/static/index.css" />
   </head>
   <body>
-    <img src="/<%=src %>">
-    <h4>이름: <%=name %></h4>
-    <h4>아이디: <%=id %></h4>
-    <h4>비밀번호: <%=pw %></h4>
-    <h4>나이: <%=age %></h4>
+    <main>
+      <div class="card">
+        <!-- <img src="/node/node-backend/04-file-upload-prac/minion.webp" -->
+        <img src="/<%= src %>" width="200" />
+        <h3><%= userInfo.userid %>님 환영합니다!</h3>
+        <ul>
+          <li>비밀번호: <%= userInfo.password %></li>
+          <li>이름: <%= userInfo.username %></li>
+          <li>나이: <%= userInfo.age %></li>
+        </ul>
+      </div>
+    </main>
+  </body>
 </html>

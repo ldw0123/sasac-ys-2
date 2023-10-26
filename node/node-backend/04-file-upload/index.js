@@ -50,7 +50,7 @@ const uploadDetail = multer({
 // limits
 // -- fileSize : 파일의 최대 크기
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // view 템플릿 엔진을 ejs로 설정함
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

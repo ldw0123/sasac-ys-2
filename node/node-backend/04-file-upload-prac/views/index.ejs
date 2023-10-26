@@ -1,65 +1,81 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>파일 업로드 실습</title>
+    <link rel="stylesheet" href="/static/index.css" />
 
-    <!-- axios CDN -->
+    <!-- axios cdn -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+      body {
+        background-color: aliceblue;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #register-result {
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h2>파일 업로드 실습</h2>
-    <form action="/upload/detail" method="post" enctype="multipart/form-data">
-      <input type="text" name="id" placeholder="아이디" /><br />
-      <input type="text" name="pw" placeholder="비밀번호" /><br />
-      <input type="text" name="name" placeholder="이름" /><br />
-      <input type="text" name="age" placeholder="나이" /><br />
-      <input type="file" name="profile" multiple /><br /><br />
-      <button type="submit">회원가입</button>
-    </form><br /><br />
+    <div>
+      <h1>파일 업로드 실습!</h1>
 
-    <h2>동적 폼 전송(axios)를 이용한 파일 업로드 실습</h2>
-    <form name="dynamic-upload">
-      <input type="text" name="id" placeholder="아이디" /><br />
-      <input type="text" name="pw" placeholder="비밀번호" /><br />
-      <input type="text" name="name" placeholder="이름" /><br />
-      <input type="text" name="age" placeholder="나이" /><br />
-      <input type="file" name="profile" /><br /><br />
-      <!-- button type을 꼭 "button"으로!-->
-      <button type="button" onclick="dynamicUpload()">회원가입(동적 폼 전송)</button>
-    </form>
+      <form action="/result" method="POST" enctype="multipart/form-data" name="register">
+        <input type="text" name="userid" placeholder="아이디" /><br />
+        <input type="password" name="password" placeholder="비밀번호" /><br />
+        <input type="text" name="username" placeholder="이름" /><br />
+        <input type="number" name="age" placeholder="나이" /><br />
+        <input type="file" name="profile" /><br /><br />
+        <button type="submit">회원가입</button>
+        <button type="button" onclick="signUp()">(동적 폼 전송)회원가입</button>
+      </form>
 
-    <div id="dynamic-upload-result"></div>
-    <div class="axios-profile"></div>
+      <div id="register-result"></div>
+    </div>
 
     <script>
-      function dynamicUpload() {
-        const form = document.forms["dynamic-upload"];
-
+      function signUp() {
+        const form = document.forms["register"];
         const formData = new FormData();
-        formData.append("id", form.title.value)
-        formData.append("pw", form.title.value)
-        formData.append("name", form.title.value)
-        formData.append("age", form.title.value)
-
-        console.log("files", form.userfile.files)
-        formData.append("userfile", form.userfile.files[0])
+        const file = form.profile;
+        formData.append('userid', form.userid.value);
+        formData.append('password', form.password.value);
+        formData.append('username', form.username.value);
+        formData.append('age', form.age.value);
+        formData.append('profile', file.files[0]);
 
         axios({
-          method: "post",
-          url: "/upload/dynamic",
+          method: "POST",
+          url: "/upload",
           data: formData,
           headers: {
-            "Content-type": "multipart/form-data"
-          }
+            'Content-Type': 'multipart/form-data',
+          },
         }).then((res) => {
-          console.log(res.data);
-          const result = document.getElementById("dynamic-upload-result");
-          result.innerHTML = `<img src="/${res.data.src}" width="150"/>`
-
-          const id = document.getElementById("id").value;
-          result.innerHTML += `아이디: ${id}`;
+          const {
+            src,
+            userid,
+            password,
+            username,
+            age
+          } = res.data
+          const card = document.getElementById("register-result")
+          card.innerHTML = `<div class="card">
+            <img src="/${src}" width="200" />
+            <h3>${userid}님 환영합니다!</h3>
+            <ul>
+              <li>비밀번호: ${password}</li>
+              <li>이름: ${username}</li>
+              <li>나이: ${age}</li>
+            </ul>
+          </div>`
         })
       }
     </script>
