@@ -17,6 +17,22 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
+app.get('/hello', function (req, res) {
+  // 데이터 베이스(재료)
+
+  // 재료를 볶아
+
+  // 재료를 볶고 음식을 만듬
+
+  // 음식을 제공
+
+  res.render('index');
+});
+
+app.get('/hello/{1}', function (req, res) {
+  res.render('index');
+});
+
 // 💡 get 요청
 // get 요청은 req.query에 데이터를 담겨서 온다!!
 // get 요청은 url로 직접 접속(요청)이 가능하다!
@@ -43,14 +59,22 @@ app.get('/get', function (req, res) {
 // 데이터를 주로 생성하는 요청에 주로 사용 (CRUD 중에서 Create를 사용하는 요청에 사용)
 app.post('/post', function (req, res) {
   console.log(req.body);
+
+  // 음식을 만든다
+
   res.send('post 요청 성공!');
 });
 
 app.post('/post/ver2', function (req, res) {
   console.log(req.body);
   // res.render() : 서버가 클라이언트에게 result.ejs를 렌더링하여 보내겠다는 의미. ejs파일이 렌더링 되고 html이 된 후에 html 문서를 클라이언트에게 response함
+
+  // 음식
+
+  nickname: '민' + req.body.name;
+
   res.render('result', {
-    name: req.body.name,
+    name: nickname,
     email: req.body.email,
   });
 });
