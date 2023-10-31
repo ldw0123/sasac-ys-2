@@ -1,22 +1,17 @@
 const express = require('express');
+const user = require('../controller/Cuser');
 const router = express.Router();
-const controller = require('../controller/Cvisitor');
 
-// ~~~~:8000 -> index.ejs 렌더하기
-router.get('/', controller.home);
+router.get('/', user.index); // index를 렌더
 
-// ~~~~:8000/visitors -> visitor.ejs 렌더하기
-router.get('/visitors', controller.visitor);
+router.get('/signup', user.signup); // 회원가입 페이지를 렌더
+router.post('/signup', user.post_signup); // 회원가입 버튼 클릭 시
 
-// 방명록 등록 (post)
-router.post('/visitor', controller.postVisitor);
+router.get('/signin', user.signin); // 로그인 페이지를 렌더
+router.post('/signin', user.post_signin); // 로그인 버튼 클릭 시
 
-// 방명록 수정 (patch)
-router.patch('/visitor/:id', function (req, res) {
-  res.send('');
-});
-
-// 방명록 삭제 (delete)
-router.delete('/visitor/:id', controller.deleteVisitor);
+router.post('/profile', user.profile); // 프로필 페이지를 렌더 (임시. 일반 POST 전송. 왜냐하면, 아직 로그인을 유지할 수 있는 기술을 모르기 때문에)
+router.patch('/profile/edit/:id', user.profile_edit); // 회원정보 수정 버튼 클릭 시
+router.delete('/profile/delete/:id', user.profile_delete); // 회원탈퇴 버튼 클릭 시
 
 module.exports = router;

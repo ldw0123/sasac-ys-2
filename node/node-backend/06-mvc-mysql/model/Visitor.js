@@ -3,10 +3,10 @@ const mysql = require('mysql'); // mysql 패키지를 사용하여 연결
 // createConnection : mysql 연결 정보를 받아서 mysql과 연결한다
 // db 연결한다 > host, user, password, database 이름
 const conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'user',
-  password: '12345678',
-  database: 'sesac_test',
+  host: 'localhost', // DB가 설치된 호스트 IP 주소
+  user: 'user', // DB 접속 유저이름
+  password: '12345678', // DB 접속 비밀번호
+  database: 'sesac_test', // DB 이름
 });
 
 // exports.getVisitors = () => {
@@ -17,6 +17,7 @@ const conn = mysql.createConnection({
 // };
 
 // 데이터베이스는 promise 기반이 아니므로, callback함수로 작성해야 함
+// getVisitors(): 전체 방명록 목록을 가져옴
 exports.getVisitors = (cb) => {
   conn.query(`SELECT * FROM visitor`, (err, rows) => {
     // err 변수가 빈 값이 아니라면, err가 발생했다는 것.
