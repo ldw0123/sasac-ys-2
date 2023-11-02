@@ -11,6 +11,13 @@ create table visitor (
     comment mediumtext
 );
 
+create table user (
+id int not null primary key auto_increment,
+userid varchar(20) not null,
+username varchar(10) not null,
+pw varchar(20) not null
+);
+
 insert into visitor (username, comment) values ('홍길동', '내가 왔다.');
 insert into visitor (username, comment) values ('이찬혁', '으라차차');
 

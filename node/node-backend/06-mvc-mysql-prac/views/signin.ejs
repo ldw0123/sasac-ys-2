@@ -11,7 +11,35 @@
     <link rel="stylesheet" href="/static/css/user.css">
 
     <script>
-      function login() {}
+      function login() {
+        var form = document.forms["form-login"];
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          console.log("reportValidity");
+
+          return false;
+        }
+        let user = {
+          userid: form.userid.value,
+          pw: form.pw.value
+        };
+        axios({
+          method: 'post',
+          url: '/user/signin',
+          data: user
+        }).then((res) => {
+          if (res.data.result == true) {
+            alert("로그인 성공");
+
+            var form_info = document.forms["form-info"];
+            form_info.id.value = res.data.id;
+            form_info.submit();
+          } else {
+            alert("로그인 실패");
+            // form.reset();
+          }
+        });
+      }
     </script>
   </head>
   <body>

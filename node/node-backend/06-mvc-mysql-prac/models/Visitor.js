@@ -6,7 +6,7 @@ function Visitor(Sequelize, DataTypes) {
   // define 함수에는 인자가 3개 들어간다
   return Sequelize.define(
     // 모델(테이블) 정의. sequelize 객체의 define 메서드를 이용해서 정의함
-    'visitor', // param1: 테이블 이름
+    'user', // param1: 테이블 이름
     // param2: 컬럼 정의
     {
       id: {
@@ -16,22 +16,24 @@ function Visitor(Sequelize, DataTypes) {
         primaryKey: true, // primaryKey은 false가 기본값
         autoIncrement: true, // autoIncrement은 false가 기본값
       },
+      userid: {
+        type: DataTypes.STRING(20),
+      },
       username: {
         type: DataTypes.STRING(10), // string 타입 10글자 제한
         // allowNull: true, // true가 기본값이므로 생략o
       },
-      comment: {
-        // mediumtext
-        type: DataTypes.TEXT('medium'),
+      pw: {
+        type: DataTypes.STRING(20),
         // allowNull: true,
       },
     },
     // param3: 모델 옵션 정의
     {
-      tablaName: 'visitor',
+      tablaName: 'user',
       freezeTableName: true,
-      // sequelize에서 간혹, 단수로 지정해 둔 테이블 이름을 sql문을 날릴 때 (visitors와 같은)복수로 변경해버리는 경우가 있음
-      // ex) insert into visitor ~~ => create() => insert into visitors ~~~
+      // sequelize에서 간혹, 단수로 지정해 둔 테이블 이름을 sql문을 날릴 때 (user와 같은)복수로 변경해버리는 경우가 있음
+      // ex) insert into user ~~ => create() => insert into user ~~~
       timestamps: false,
       // insert, update시에 그 시간을 자동으로 저장하겠다 -> 저장하는 것이 기본값
       // creatAt, updateAt 이라는 컬럼에 자동으로 저장
@@ -40,4 +42,4 @@ function Visitor(Sequelize, DataTypes) {
   );
 }
 
-module.exports = Visitor;
+module.exports = user;
