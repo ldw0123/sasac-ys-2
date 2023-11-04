@@ -34,6 +34,15 @@ app.get('/set', (req, res) => {
   res.send('set session');
 });
 
+// 세션 삭제
+app.get('/', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) throw err;
+
+    res.send('로그아웃 성공');
+  });
+});
+
 app.get('/get', (req, res) => {
   if (req.session.user) {
     res.render('profile', {});
