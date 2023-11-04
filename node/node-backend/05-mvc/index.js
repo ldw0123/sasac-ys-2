@@ -14,7 +14,7 @@ app.use(express.json());
 // [after]
 // 1) app.get('/', -> 부분을 routes폴더의 index.js 파일로 분리,
 // 2) function (req, res) {
-//   res.render('index'); // index.ejx render
+//   res.render('index'); // index.ejs render
 // }); - > 부분을 controller 폴더의 Cmain.js 파일로 분리함
 
 // routes 폴더 불러오기
