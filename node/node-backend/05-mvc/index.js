@@ -8,7 +8,7 @@ app.use(express.json());
 
 // [before] 이전에 사용하던 코드
 // app.get('/', function (req, res) {
-//   res.render('index'); // index.ejx render
+//   res.render('index'); // index.ejs render
 // });
 
 // [after]
