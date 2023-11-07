@@ -8,4 +8,4 @@ SeSAC 강의 코드 관리
 - git branch test (예시: 로그인 UI 완료)
 - git branch test (예시: 로그인 API)
 
-- git branch test2
+- git branch test4
