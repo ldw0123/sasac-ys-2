@@ -9,3 +9,5 @@ SeSAC 강의 코드 관리
 - git branch test (예시: 로그인 API)
 
 - git branch test4
+
+- pr test
