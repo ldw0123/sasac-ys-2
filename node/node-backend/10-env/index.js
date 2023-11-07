@@ -11,7 +11,13 @@ const dotenv = require('dotenv');
 // index.js와 같은 위치에 있는 .env 파일을 불러와서 환경변수로 사용할 수 있게끔 한다
 dotenv.config({ path: path.join(__dirname, './config/envs/.env') }); // path(경로) 직접 지정
 
+dotenv.config({
+  // process.env.NODE_ENV : package.json 에서 생긴 변수
+  path: path.join(__dirname, `./config/envs/${process.env.NODE_ENV}.env`),
+});
+
 console.log('test var: ', process.env.TEST_VAR);
+console.log('password: ', process.env.PASSWORD);
 
 app.get('/', (req, res) => {
   res.send('hello world');
