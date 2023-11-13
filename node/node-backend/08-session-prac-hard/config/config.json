@@ -3,7 +3,7 @@
     "host": "localhost",
     "database": "database_test",
     "username": "user",
-    "password": "1234qwer*",
+    "password": "12345678",
     "dialect": "mysql"
   },
   "production": {
