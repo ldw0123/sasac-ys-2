@@ -1,0 +1,25 @@
+/* App.js (최상위 컴포넌트)에서 App.css를 import해서 그 하위 컴포넌트에서 자동으로 import되기 따문에 FuncComponent에서 import하지 않아도 됨 */
+/* 그래서 이름이 중복되면 css가 겹칠 수 있기 때문에 네이밍을 잘 해야 함 */
+
+/* BEM 네이밍 규칙 */
+.FuncComponent__test-css--active {
+}
+
+.test-css {
+  background-color: cadetblue;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.practice1 {
+  width: 470px;
+  background-color: rgb(255, 231, 201);
+  color: rgb(182, 132, 39);
+  font-size: 20px;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.practice2 {
+  margin-left: 50px;
+}
