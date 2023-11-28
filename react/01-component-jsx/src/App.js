@@ -1,6 +1,12 @@
 import './App.css'; // App.css 불러오기
-import ClassComponent from './components/ClassComponent'; // ClassComponent 불러오기
-import FuncComponent from './components/FuncComponent'; // FuncComponent 불러오기
+import ClassComponent from './components/ClassComponent'; // ClassComponent.js 불러오기
+import FuncComponent from './components/FuncComponent'; // FuncComponent.js 불러오기
+import FuncPropsEx from './components/FuncPropsEx'; // FuncPropsEx.js 불러오기
+import Section from './components/Section'; // Section.js 불러오기
+import ClassPropsEx from './components/ClassPropsEx'; // ClassPropsEx.js 불러오기
+
+import PracPropsEx from './components/PracPropsEx'; // 실습
+import PracClassComponent from './components/PracClassComponent'; // 실습
 
 const name2 = '핑핑이';
 const animal2 = '강아지';
@@ -13,11 +19,31 @@ function App() {
     <div>
       {/* FuncComponent.js 불러오기 */}
       <FuncComponent />
+
       {/* <FuncComponent></FuncComponent> */}
       <br />
+
       {/* ClassComponent.js 불러오기 */}
       <ClassComponent />
       <br />
+
+      {/* FuncPropsEx.js 불러오기 */}
+      <FuncPropsEx title="SeSAC" content="hello world" number="{5}" />
+      <FuncPropsEx content="hello world" number={5} />
+
+      {/* ClassPropsEx.js 불러오기 */}
+      <ClassPropsEx title="SeSAC" content="hello world" number="{5}" />
+
+      {/* Section.js 불러오기 */}
+      {/* props.children : 부모 컴포넌트에서 자식 컴포넌트를 호출할 때 태그 사이에 작성한 문자열 */}
+      <Section title="SeSAC 영역">
+        <div>SeSAC 영역의 content입니다</div> {/* children */}
+      </Section>
+      <Section title="코딩온 영역">
+        <h5>코딩온 영역의 content입니다</h5>
+      </Section>
+      <br />
+
       {/* 실습1 */}
       <h4>제 반려 동물의 이름은 {name2}입니다.</h4>
       <h4>
@@ -28,7 +54,7 @@ function App() {
       {/* 실습3 */}
       <h4>{a > b ? 'a가 b보다 큽니다' : 'b가 a보다 큽니다'}</h4>
       {/* 실습4 */}
-      <div>
+      <>
         <div className="practice1">{title}</div>
         <br />
         <div className="practice2">
@@ -37,7 +63,17 @@ function App() {
           <br />
           비밀번호: <input type="password" />
         </div>
-      </div>
+        <br />
+      </>
+      {/* 실습 */}
+      <PracPropsEx
+        food="깍두기"
+        title="나의 하루는 4시 30분에 시작된다"
+        author="김유진"
+        price="13,500원"
+        type="자기계발서"
+      />
+      <PracClassComponent text="클래스형 컴포넌트 props 실습입니다" />
     </div>
   );
 }

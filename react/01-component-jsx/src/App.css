@@ -23,3 +23,16 @@
 .practice2 {
   margin-left: 50px;
 }
+
+.Section__section {
+  margin-bottom: 20px;
+  border: 2px solid cadetblue;
+}
+
+.Section__title {
+  color: brown;
+}
+
+.PracPropsEx__food {
+  color: crimson;
+}
