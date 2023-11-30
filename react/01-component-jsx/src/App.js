@@ -17,24 +17,24 @@ const title = 'Hello World';
 function App() {
   return (
     <div>
-      {/* FuncComponent.js 불러오기 */}
+      {/* FuncComponent() 불러오기 */}
       <FuncComponent />
 
       {/* <FuncComponent></FuncComponent> */}
       <br />
 
-      {/* ClassComponent.js 불러오기 */}
+      {/* ClassComponent() 불러오기 */}
       <ClassComponent />
       <br />
 
-      {/* FuncPropsEx.js 불러오기 */}
+      {/* FuncPropsEx() 불러오기 */}
       <FuncPropsEx title="SeSAC" content="hello world" number="{5}" />
       <FuncPropsEx content="hello world" number={5} />
 
-      {/* ClassPropsEx.js 불러오기 */}
+      {/* ClassPropsEx() 불러오기 */}
       <ClassPropsEx title="SeSAC" content="hello world" number="{5}" />
 
-      {/* Section.js 불러오기 */}
+      {/* Section() 불러오기 */}
       {/* props.children : 부모 컴포넌트에서 자식 컴포넌트를 호출할 때 태그 사이에 작성한 문자열 */}
       <Section title="SeSAC 영역">
         <div>SeSAC 영역의 content입니다</div> {/* children */}

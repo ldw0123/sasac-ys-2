@@ -4,17 +4,20 @@ import './App.css';
 import StateClass from './components/StateClass';
 import StateFunc from './components/StateFunc';
 import EventClass from './components/EventClass';
-
-import PracStateClass from './components/PracStateClass';
-import PracStateFunc from './components/PracStateFunc';
 import EventFunc from './components/EventFunc';
+
+import PracStateClass from './components/practice/StateClassEx';
+import PracStateFunc from './components/practice/StateFuncEx';
+import EventClassEx1 from './components/practice/EventClassEx1';
+import EventClassEx2 from './components/practice/EventClassEx2';
+import EventClassEx3 from './components/practice/EventClassEx3';
+import EventClassEx4 from './components/practice/EventClassEx4';
 
 function App() {
   return (
     <div>
-      {/* StateClass.js 불러오기 */}
+      {/* StateClass() 불러오기 */}
       <StateClass name="lily" />
-      {/* StateFunc.js 불러오기 */}
       <StateFunc />
       <EventClass />
       <EventFunc />
@@ -22,6 +25,10 @@ function App() {
       {/* 실습 */}
       <PracStateClass />
       <PracStateFunc />
+      <EventClassEx1 />
+      <EventClassEx2 />
+      <EventClassEx3 />
+      <EventClassEx4 />
     </div>
   );
 }
