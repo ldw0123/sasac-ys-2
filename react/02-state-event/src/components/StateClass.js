@@ -1,6 +1,6 @@
 // ⭐ 클래스형 컴포넌트 state
 
-import { Component } from 'react'; // Component 클래스 불러오기
+import { Component } from 'react'; // 리액트에서 만든 Component 클래스 불러오기
 
 class StateClass extends Component {
   // ⭐ 옛날 방식 (생성자 이용)
@@ -34,8 +34,8 @@ class StateClass extends Component {
 
     return (
       <>
-        <div>props 예시 {this.props.name}</div>
         <h3>클래스형 컴포넌트 state 공부</h3>
+        <div>props 예시 {this.props.name}</div> <br />
         <div>
           number state value {this.state.number}{' '}
           <button

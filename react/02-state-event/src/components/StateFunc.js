@@ -20,7 +20,7 @@ function StateFunc() {
           // setNumber(number + 1);
 
           // 동기 처리
-          setNumber((prevNumber) => prevNumber + 1);
+          setNumber((prevNumber) => prevNumber + 2);
         }}
       >
         +2
