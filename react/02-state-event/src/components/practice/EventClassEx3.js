@@ -1,4 +1,4 @@
-// 함수형 컴포넌트 Event Handling 실습3
+// 컴포넌트 Event Handling 실습 3
 
 import { useState } from 'react';
 

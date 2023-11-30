@@ -1,4 +1,4 @@
-// 클래스형 컴포넌트 Event Handling 실습2
+// 컴포넌트 Event Handling 실습 2
 
 import { Component } from 'react';
 

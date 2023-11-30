@@ -1,4 +1,4 @@
-// 함수형 컴포넌트 Event Handling 실습4
+// 컴포넌트 Event Handling 실습 4
 
 import { useState } from 'react';
 
@@ -18,6 +18,8 @@ function EventClassEx4() {
         return <img src="/peach.jpg" style={{ width: '300px' }} />;
       case 'orange':
         return <img src="/orange.jpg" style={{ width: '300px' }} />;
+      default:
+        return 'apple';
     }
   };
 
@@ -31,6 +33,8 @@ function EventClassEx4() {
         return 'red';
       case 'B-orange':
         return 'orange';
+      default:
+        return 'black';
     }
   };
 
@@ -44,6 +48,8 @@ function EventClassEx4() {
         return 'red';
       case 'C-orange':
         return 'orange';
+      default:
+        return 'white';
     }
   };
 
