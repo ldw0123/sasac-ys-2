@@ -14,6 +14,7 @@ function App() {
       <ClassRef />
       <ScrollBox />
 
+      {/* 실습 */}
       <ListMapEx1 />
       <ListMapEx2 />
     </div>
