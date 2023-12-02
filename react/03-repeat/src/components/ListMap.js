@@ -1,3 +1,5 @@
+// 함수형 컴포넌트 Map()
+
 import { useState } from 'react';
 
 function ListMap() {
@@ -55,7 +57,7 @@ function ListMap() {
 
   return (
     <>
-      <h3>map() 함수</h3>
+      <h3>map() 함수 공부</h3>
       <label>추가할 상품: </label>
       <input
         type="text"
@@ -84,7 +86,6 @@ function ListMap() {
           );
         })}
       </ul>
-      <hr />
     </>
   );
 }

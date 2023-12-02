@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 function ListMapEx2() {
   // 빈 배열 설정
@@ -26,9 +26,15 @@ function ListMapEx2() {
   // 검색하는 메서드
   const searchData = () => {};
 
+  // useRef()
+  const input = useRef(); // ref 객체 생성
+
+  // input에 focus를 주는 메서드
+  const focusInput = () => {};
+
   return (
     <>
-      <h3>ListMap 실습 3, 4</h3>
+      <h3>ListMap 실습 3, 4 / Ref 실습</h3>
       <fieldset style={{ width: '500px' }}>
         <label>작성자: </label>
         <input
@@ -37,6 +43,7 @@ function ListMapEx2() {
           onChange={(e) => {
             setNewName(e.target.value);
           }}
+          ref={input}
           placeholder="이름"
         />{' '}
         <label>제목: </label>
@@ -46,9 +53,17 @@ function ListMapEx2() {
           onChange={(e) => {
             setNewEmail(e.target.value);
           }}
+          ref={input}
           placeholder="제목"
         />{' '}
-        <button onClick={addData}>작성</button>
+        <button
+          onClick={() => {
+            addData();
+            focusInput();
+          }}
+        >
+          작성
+        </button>
       </fieldset>
       <br />
       <select
@@ -80,6 +95,7 @@ function ListMapEx2() {
           ))}
         </tbody>
       </table>
+      <hr />
     </>
   );
 }
