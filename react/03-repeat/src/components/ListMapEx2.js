@@ -24,13 +24,7 @@ function ListMapEx2() {
   };
 
   // 검색하는 메서드
-  const searchData = () => {
-    // 검색어에 해당하는 데이터를 찾아서 테이블에 보여줌
-    const filteredList = list.filter(
-      (value) => value.name.includes(newName) || value.email.includes(newEmail)
-    );
-    setList(filteredList);
-  };
+  const searchData = () => {};
 
   return (
     <>

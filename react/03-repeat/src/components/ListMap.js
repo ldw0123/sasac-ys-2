@@ -39,7 +39,7 @@ function ListMap() {
 
   // 더블클릭한 상품을 삭제하는 메서드
   const deleteProduct = (id) => {
-    // filter() 메서드: 앞에 있는 배열을 반복
+    // filter() 메서드: 앞에 있는 배열을 반복. 값을 걸러내는 메서드
     // filter() 메서드의 반환값은 조건이 되어야 한다. 조건이 true일 경우, 해당 원소는 새로운 배열에 포함 / false일 경우, 포함하지 않음
 
     // const newList = list.filter((value) => {
