@@ -1,4 +1,5 @@
 // 함수형 컴포넌트 useRef()
+
 import { useRef } from 'react'; // useRef()는 hook으로 메서드를 불러와야 함
 
 function FuncRef() {

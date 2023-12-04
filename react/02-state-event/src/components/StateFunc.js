@@ -1,5 +1,6 @@
 // ⭐ 함수형 컴포넌트 state
 // 함수형 컴포넌트에서 state를 이용하려면 hook이 필요함
+// hook: 함수형 컴포넌트에서 리액트 기능을 걸어 사용(hook into)하기 위한 리액트 내장 함수
 
 import { useState } from 'react'; // hook 이용. useState 클래스 불러오기
 

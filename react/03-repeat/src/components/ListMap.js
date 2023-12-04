@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function ListMap() {
   // list라는 state를 만들고 그 안에 배열 생성
-  // const [list, setList] = useState(['a', 'b', 'c']);
+  // const [list, setList] = useState(['a', 'b', 'c']); // 간단한 배열 예시
 
   // 객체 배열
   const productList = [
@@ -85,6 +85,21 @@ function ListMap() {
             </div>
           );
         })}
+
+        {/* 위와 동일. return 생략 */}
+        {/* {list.map((value) => (
+          <div>
+            <li
+              style={{ cursor: 'pointer' }}
+              key={value.id}
+              onDoubleClick={() => {
+                deleteProduct(value.id);
+              }}
+            >
+              {value.product}
+            </li>
+          </div>
+        ))} */}
       </ul>
     </>
   );

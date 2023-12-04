@@ -1,6 +1,6 @@
-import { Component, createRef } from 'react';
-
 // 클래스형 컴포넌트 useRef()
+
+import { Component, createRef } from 'react';
 class ClassRef extends Component {
   input2 = createRef(); // createRef() 메서드 이용
 

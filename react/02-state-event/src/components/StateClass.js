@@ -5,7 +5,7 @@ import { Component } from 'react'; // 리액트에서 만든 Component 클래스
 class StateClass extends Component {
   // ⭐ 옛날 방식 (생성자 이용)
   // constructor() {
-  //   super(); // super(): 부모 클래스의 생성자
+  //   super(); // super(): 부모 클래스의 생성자를 호출해서 부모 클래스의 속성과 메서드를 상속 받는다
   //   // super를 실행시켜야 this 객체를 사용할 수 있다
 
   //   // state 변수 생성 (객체 형태)
@@ -48,9 +48,10 @@ class StateClass extends Component {
               // this.setState({ number: this.state.number + 1 });
 
               // setState를 연달아 2번 사용해야 할 때, 위처럼 2번 작성해 사용하면 원하는 결과를 얻을 수 없음
-              // state는 비동기 작업이기 때문. 값이 바뀌기 전에 아래 줄이 실행됨
+              // state는 비동기 작업이기 때문. 첫 번째 줄의 결과를 기다리지 않고, 값이 바뀌기 전에 아래 줄이 실행됨
 
               // 콜백함수 이용 (동기 처리)
+              // 이름을 임의로 정한 매개변수 prevState는 컴포넌트의 현재 상태를 참조한다
               this.setState((prevState) => {
                 return { number: prevState.number + 1 };
               });
