@@ -30,7 +30,9 @@ function ListMapEx2() {
   const input = useRef(); // ref 객체 생성
 
   // input에 focus를 주는 메서드
-  const focusInput = () => {};
+  const focusInput = () => {
+    // 하.. 빡세다
+  };
 
   return (
     <>
