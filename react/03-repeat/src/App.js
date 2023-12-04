@@ -5,6 +5,7 @@ import ListMapEx2 from './components/ListMapEx2';
 import FuncRef from './components/FuncRef';
 import ClassRef from './components/ClassRef';
 import ScrollBox from './components/ScrollBox';
+import RefPractice from './components/RefEx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       {/* 실습 */}
       <ListMapEx1 />
       <ListMapEx2 />
+      <RefPractice />
     </div>
   );
 }

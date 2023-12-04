@@ -27,13 +27,12 @@ class ClassRef extends Component {
             // this 객체의 input 필드에 ref 변수를 대입
             this.input = ref;
           }}
-        />
+        />{' '}
         <button type="button" onClick={this.focusInput}>
           버튼
-        </button>
-
+        </button>{' '}
         {/* input2 변수를 이용 */}
-        <input type="text" ref={this.input2} />
+        <input type="text" ref={this.input2} />{' '}
         <button type="button" onClick={this.focusInput2}>
           버튼
         </button>

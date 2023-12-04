@@ -27,11 +27,22 @@ function ListMapEx2() {
   const searchData = () => {};
 
   // useRef()
-  const input = useRef(); // ref 객체 생성
+  const nameInput = useRef(); // ref 객체 생성
+  const emailInput = useRef();
 
-  // input에 focus를 주는 메서드
-  const focusInput = () => {
-    // 하.. 빡세다
+  // 작성자와 제목이 비어있는지 확인하고, 비어있는 경우 포커스를 주는 함수
+  const checkInputValue = () => {
+    if (newName.trim().length === 0) {
+      nameInput.current.focus();
+      return false;
+    }
+
+    if (newEmail.trim().length === 0) {
+      emailInput.current.focus();
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -45,7 +56,7 @@ function ListMapEx2() {
           onChange={(e) => {
             setNewName(e.target.value);
           }}
-          ref={input}
+          ref={nameInput}
           placeholder="이름"
         />{' '}
         <label>제목: </label>
@@ -55,13 +66,13 @@ function ListMapEx2() {
           onChange={(e) => {
             setNewEmail(e.target.value);
           }}
-          ref={input}
+          ref={emailInput}
           placeholder="제목"
         />{' '}
         <button
           onClick={() => {
             addData();
-            focusInput();
+            checkInputValue();
           }}
         >
           작성

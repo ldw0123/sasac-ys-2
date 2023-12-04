@@ -9,6 +9,7 @@ function FuncRef() {
   // const localVar = 0; // 위와 동일
 
   const focusInput = () => {
+    // useRef 객체의 current 속성
     input.current.focus(); // input창에 focus를 준다
   };
 
@@ -22,13 +23,13 @@ function FuncRef() {
       <h3>함수형 컴포넌트 useRef() 함수 공부</h3>
       {/* ref 객체를 변수(여기서는 input태그)에 할당하고, */}
       {/* ref 객체를 ref 속성에 전달하여 해당 HTML 요소와 연결 */}
-      <input type="text" ref={input} />{' '}
+      <input type="text" ref={input} placeHolder="버튼을 클릭하면 focus" />{' '}
       <button type="button" onClick={focusInput}>
         버튼
       </button>
       <div>{localVar.current}</div>
       <button type="button" onClick={plusLocalVar}>
-        버튼
+        console에 출력
       </button>
       <br />
       <br />

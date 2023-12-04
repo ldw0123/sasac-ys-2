@@ -7,7 +7,7 @@ function ScrollBox() {
   };
   return (
     <>
-      <h3>Scroll Box</h3>
+      <h3>함수형 컴포넌트 useRef() - Scroll Box</h3>
       <div className="scroll-box" ref={box}>
         <h1>hello</h1>
         <h1>lily</h1>
