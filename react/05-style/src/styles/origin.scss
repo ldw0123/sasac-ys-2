@@ -1,0 +1,91 @@
+// ⭐ Sass
+
+// 일반적인 css 문법
+// :root {
+//   --color-main: red; // css 변수
+// }
+
+// div {
+//   color: var(--color-main); // css 변수
+//   width: calc(100% - 100px); // css 연산
+// }
+
+$color-main: red; // 1️⃣ Sass 변수
+
+.scss-parents {
+  color: $color-main;
+  // 2️⃣ 연산
+  // width: 100% - 200;
+  // background-color: antiquewhite;
+}
+
+// 3️⃣ 믹스인: style 코드 블록을 함수처럼 하나로 묶어둔다
+// @mixin 함수명($변수명) {}
+@mixin box-width($size) {
+  width: $size;
+  height: $size;
+}
+
+// 사용할 때는 @include 키워드를 이용한다
+// @include 함수명($변수값);
+.box1 {
+  @include box-width(100px);
+  background-color: rgb(51, 51, 202);
+}
+
+.box2 {
+  @include box-width(200px);
+  background-color: rgb(31, 125, 31);
+}
+
+// 일반적인 css 문법 중첩 태그
+// .scss-parents > ul {
+//   background-color: black;
+//   color: white;
+// }
+
+// 4️⃣ Sass 문법 중첩: 선택자를 중첩시켜 코드의 중복을 줄이고, 가독성을 높인다
+.scss-parents {
+  ul {
+    background-color: black;
+    color: white;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// 네모네모
+.origin-sass {
+  display: flex;
+  .box {
+    @include box-width(100px);
+
+    &.red {
+      background-color: rgb(234, 70, 70);
+    }
+
+    &.orange {
+      background-color: rgb(255, 187, 60);
+    }
+
+    &.yellow {
+      background-color: rgb(255, 255, 84);
+    }
+  }
+}
+
+// 버튼
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+// 5️⃣ 확장
+// @extend : 기존의 선택자 스타일을 다른 선택자에게 상속
+.btn-primary {
+  @extend .btn;
+  background-color: aquamarine;
+}

@@ -1,0 +1,34 @@
+/* 일반적인 css 방식 */
+
+.origin {
+  display: flex;
+}
+
+.origin .box {
+  width: 100px;
+  height: 100px;
+}
+
+.origin .red {
+  background-color: rgb(226, 70, 70);
+}
+
+.origin .orange {
+  background-color: rgb(255, 187, 60);
+}
+
+.origin .yellow {
+  background-color: rgb(255, 255, 84);
+}
+
+.origin .green {
+  background-color: rgb(39, 127, 39);
+}
+
+.origin .blue {
+  background-color: rgb(58, 58, 224);
+}
+
+.origin .purple {
+  background-color: rgb(145, 55, 178);
+}
