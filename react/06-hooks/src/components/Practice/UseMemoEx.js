@@ -14,7 +14,7 @@ export default function UseMemoEx() {
         return words.filter((w) => w.includes(word)).length; // filter(찾을 값) : word를 포함하고 있는 요소만 모아서 해당 요소의 개수를 boolean값으로 반환
       }
       // 빈 문자열인 경우 0 반환
-      return 0;
+      // return 0;
     },
     // text와 searchWord 어떤 값이라도 변화가 있으면 callback함수 실행
     [text, searchWord]
