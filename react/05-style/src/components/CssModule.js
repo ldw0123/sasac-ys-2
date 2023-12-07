@@ -4,6 +4,7 @@ import styles from '../styles/origin.module.css';
 function CssModule() {
   return (
     <>
+      <h2>CssModule.js</h2>
       {/* styles.origin: CSS 모듈에서 정의한 origin 클래스를 의미*/}
       <div className={styles.origin}>
         {/* css를 가져오는 방법 1) 백틱 */}

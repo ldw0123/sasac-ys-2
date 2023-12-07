@@ -1,0 +1,20 @@
+// 파일명에 _ 로 시작하면 scss끼리 참조한다는 암묵적인 룰이 있다
+
+// 문자 보관
+$break-md: 768px; // 브레이크 포인트
+
+@mixin aaaa($id, $pos) {
+  // #{} : 문자 그대로 가져올 수 있다
+  @keyframes ani1#{$id} {
+    from {
+      top: 0px;
+    }
+    to {
+      top: $pos;
+    }
+  }
+}
+
+// @include aaa(1, 30px);
+// @include aaa(2, 50px);
+// @include aaa(3, 100px);

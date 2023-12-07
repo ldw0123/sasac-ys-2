@@ -4,6 +4,7 @@ import '../styles/origin.css'; // css 사용하기
 function OriginCss() {
   return (
     <>
+      <h2>Origin.css</h2>
       <div className="origin">
         <div className="box red"></div>
         <div className="box orange"></div>
