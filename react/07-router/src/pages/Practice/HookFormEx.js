@@ -41,7 +41,13 @@ export default function HookFormEx() {
           placeholder="나이"
           {...register('age', {
             required: ' 나이는 필수로 작성해야 합니다',
+            // 방법 1
             min: { value: 0, message: ' 0 이상의 숫자만 입력 가능합니다' },
+            // 방법 2: validate 이용
+            // validate: {
+            //   useNumber: (v) =>
+            //     Number(v) >= 0 || '0이상의 숫자만 입력 가능합니다.',
+            // },
           })}
         />
         {errors.age?.message}
