@@ -1,8 +1,8 @@
-// ⭐ Redux
+// ⭐ Ver.3
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux'; // useSelector hook 불러오기
-import { increase, descrese } from './store/counterReducer'; // counterReducer.js에서 만든 함수 불러오기
+import { increase, decrease } from './store/counterReducer'; // counterReducer.js에서 만든 함수 불러오기
 
 function AppRedux2() {
   return (
@@ -57,7 +57,7 @@ function Box4() {
       {/* <button onClick={() => dispatch({ type: 'INCREMENT' })}>plus</button>
       <button onClick={() => dispatch({ type: 'DECREMENT' })}>minus</button> */}
       <button onClick={() => dispatch(increase())}>plus</button>
-      <button onClick={() => dispatch(descrese())}>minus</button>
+      <button onClick={() => dispatch(decrease())}>minus</button>
 
       <div>isData: {`${isData}`}</div>
       <button onClick={() => dispatch({ type: 'CHANGE' })}>change</button>
