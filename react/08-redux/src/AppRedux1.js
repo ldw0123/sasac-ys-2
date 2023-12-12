@@ -1,4 +1,4 @@
-// ⭐ Redux
+// ⭐ Ver.2
 
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux'; // useSelector hook 불러오기
