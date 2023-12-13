@@ -41,7 +41,7 @@ let obj2: object = {
 };
 
 // Tuple
-let drink1: [string, number] = ['cola', 2500];
+let drink1: [string, number] = ['cola', 2500]; // 타입 선언을 하고, 초기화
 console.log(drink1[0]);
 drink1[0] = 'juice';
 console.log(drink1[0]);
