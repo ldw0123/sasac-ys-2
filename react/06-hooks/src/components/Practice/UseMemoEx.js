@@ -1,3 +1,5 @@
+// 실습
+
 import { useMemo, useState } from 'react';
 
 export default function UseMemoEx() {

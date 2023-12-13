@@ -1,3 +1,5 @@
+// 실습
+
 import { useCallback, useState } from 'react';
 
 function UseCallbackEx() {
