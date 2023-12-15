@@ -1,11 +1,11 @@
 // ⭐ Ver 1. props drilling (props 지옥) 예시
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<App />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
 // ⭐ Ver 2. Redux 예시
 // import React from 'react';
@@ -45,28 +45,28 @@
 // );
 
 // ⭐ Ver.3 리덕스 구조화 (store 폴더 생성)
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import AppRedux2 from './AppRedux2';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import './index.css';
+// import AppRedux2 from './AppRedux2';
 
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { Provider } from 'react-redux';
+// import { configureStore } from '@reduxjs/toolkit';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 
-import rootReducer from './store';
-import AppReduxEx from './AppReduxEx';
+// import rootReducer from './store';
+// import AppReduxEx from './AppReduxEx';
 
-const store = configureStore({ reducer: rootReducer }, composeWithDevTools());
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Provider store={store}>
-    <AppRedux2 />
-    <hr />
-    {/* 실습 */}
-    <AppReduxEx />
-  </Provider>
-);
+// const store = configureStore({ reducer: rootReducer }, composeWithDevTools());
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <Provider store={store}>
+//     <AppRedux2 />
+//     <hr />
+//     {/* 실습 */}
+//     <AppReduxEx />
+//   </Provider>
+// );
 
 // ⭐ Ver.4 리덕스 구조화 + containers 컴포넌트 폴더 / presentational 컴포넌트 폴더를 생성해서 분리
 // import React from 'react';
