@@ -6,6 +6,9 @@ import { useState } from 'react';
 function App() {
   return (
     <div>
+      <h2>
+        <i>Ver 1. props drilling (props 지옥) 예시</i>
+      </h2>
       <Box1 />
     </div>
   );

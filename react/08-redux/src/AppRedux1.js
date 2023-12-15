@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'; // useSelector hook 불�
 function AppRedux1() {
   return (
     <div>
+      <h2>
+        <i>Ver 2. Redux 예시</i>
+      </h2>
       <Box1 />
     </div>
   );
@@ -44,7 +47,8 @@ function Box3() {
 
 function Box4() {
   const number = useSelector((state) => state.number);
-  // dispatch: 액션을 발생시키는 함수. 액션은 상태 변화를 일으키는 객체
+  // dispatch: 액션을 발생시키는 함수
+  // action: 상태 변화를 일으키는 객체
   const dispatch = useDispatch();
 
   return (

@@ -8,6 +8,12 @@ import { Box1Container } from './containers/BoxesContainer';
 function AppRedux3() {
   return (
     <div>
+      <h2>
+        <i>
+          Ver.4 리덕스 구조화 + containers 컴포넌트 폴더 / presentational
+          컴포넌트 폴더를 생성해서 분리
+        </i>
+      </h2>
       <Box1Container />
     </div>
   );

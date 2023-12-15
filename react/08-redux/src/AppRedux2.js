@@ -7,6 +7,9 @@ import { increase, decrease } from './store/counterReducer'; // counterReducer.j
 function AppRedux2() {
   return (
     <div>
+      <h2>
+        <i>Ver.3 Redux 구조화 (store 폴더 생성)</i>
+      </h2>
       <Box1 />
     </div>
   );
