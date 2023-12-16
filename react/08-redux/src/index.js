@@ -66,7 +66,7 @@
 //   </Provider>
 // );
 
-// ⭐ Ver.4 리덕스 구조화 + containers 컴포넌트 폴더 / presentational 컴포넌트 폴더를 생성해서 분리
+// ⭐ Ver.4 리덕스 구조화 + containers폴더 / components 폴더 컴포넌트 폴더를 생성해서 분리
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

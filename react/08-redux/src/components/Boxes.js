@@ -1,4 +1,5 @@
 // ⭐ Ver.4
+// Presentational 컴포넌트: UI 담당
 import { Box2Container, Box4Container } from '../containers/BoxesContainer';
 
 export function Box1({ number }) {

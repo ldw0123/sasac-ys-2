@@ -1,4 +1,5 @@
 // ⭐ Ver.4
+// Container 컴포넌트: 기능 구현 당담
 import { useSelector, useDispatch } from 'react-redux';
 import { Box1, Box2, Box4 } from '../components/Boxes';
 import { increase, decrease } from '../store/counterReducer'; // increase, decrease 함수 호출
