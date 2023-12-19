@@ -38,6 +38,7 @@ io.on('connection', (socket) => {
   });
 });
 
+// app.listen이 아닌 server.listen!
 server.listen(PORT, function () {
   console.log(`server open: ${PORT}`);
 });
