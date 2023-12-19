@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket</title>
+    <!-- socket.io CDN -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h3>소켓 연습</h3>
+    <button onclick="hello()">Hello</button>
+    <button onclick="entry()">entry</button>
+
+    <script>
+      // io(): 클라이언트 소켓을 생성하고, 서버와의 연결을 설정하는 함수
+      const socket = io();
+
+      // emit(): 소켓을 이용해 데이터를 전송하는 함수
+      // on(): 소켓을 이용해 데이터를 수신하는 이벤트
+
+      function hello() {
+        // socket.emit(전송할 이벤트 이름(필수값) , [전송 데이터])
+        // 전송할 데이터의 형태는 자유롭게 (문자열, 숫자, 객체)
+        socket.emit("hello socket!", {
+          msg: "안녕하세용"
+        })
+      }
+      // 이벤트 핸들러(on() 등)를 특정 함수 안에 넣어놓을 때 주의해야 한다. 함수가 실행될 때마다 계속 등록돼서 중복 실행되기 때문
+      socket.on("bye socket!", (res) => {
+        console.log(res) // 브라우저 콘솔에 출력
+      })
+
+      function entry() {
+        socket.emit('entry')
+      }
+      socket.on('notice', (res) => {
+        console.log(res.msg)
+      })
+    </script>
+  </body>
+</html>
