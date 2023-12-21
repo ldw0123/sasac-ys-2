@@ -98,7 +98,7 @@ export default function Chatting3() {
     return () => socket.off('notice', notice);
   }, [chatList]);
 
-  // [실습 4] 채팅창 메시지 전송
+  // [실습 4, 5]
   const sendMsg = () => {
     // 메시지가 비어있지 않을 경우 송신
     if (msgInput !== '') {

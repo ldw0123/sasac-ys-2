@@ -67,20 +67,19 @@ io.on('connection', (socket) => {
   // [실습 4, 5]
   socket.on('sendMsg', (res) => {
     if (res.dm === 'all')
-      if (res.dm === 'all')
-        // 유저의 id, 메시지를 전체에게 송신
-        io.emit('chat', { userId: res.userId, msg: res.msg });
-      else {
-        // 원하는 사람에게만 메시지(socket)을 보낸다
-        // io.to(socket.id).emit()
-        io.to(res.dm === 'all').emit('chat', {
-          userId: res.userId,
-          msg: res.msg,
-          dm: true,
-        });
-        // 나에게 보내는 메시지를 송신
-        socket.emit('chat', { userId: res.userId, msg: res.msg, dm: true });
-      }
+      // 유저의 id, 메시지를 전체에게 송신
+      io.emit('chat', { userId: res.userId, msg: res.msg });
+    else {
+      // 원하는 사람에게만 메시지(socket)을 보낸다
+      // io.to(socket.id).emit()
+      io.to(res.dm).emit('chat', {
+        userId: res.userId,
+        msg: res.msg,
+        dm: true,
+      });
+      // 나에게 보내는 메시지를 송신
+      socket.emit('chat', { userId: res.userId, msg: res.msg, dm: true });
+    }
   });
 });
 
