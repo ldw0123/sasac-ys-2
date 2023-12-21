@@ -9,6 +9,7 @@ const socket = io.connect('http://localhost:8000/', { autoConnect: false });
 export default function Chatting1() {
   const [msgInput, setMsgInput] = useState('');
   const [chatList, setChatList] = useState([
+    // 더미 데이터
     {
       type: 'my', // 나
       content: '안녕?',
