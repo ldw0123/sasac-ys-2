@@ -4,7 +4,6 @@ const app = express();
 // 소켓은 http 모듈로 생성된 서버에서만 동작한다
 const server = http.createServer(app); // app이 생성된 다음, app을 연결하여 서버를 생성
 const PORT = 8000;
-
 const io = require('socket.io')(server); // 소켓 객체 생성
 // 위아래 동일
 // const Socket = require('socket.io');
