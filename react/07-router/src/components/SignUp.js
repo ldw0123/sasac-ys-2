@@ -1,4 +1,6 @@
 // ⭐ Hook Form
+// useForm : React에서 form의 validation을 도와주는 라이브러리이다. 이 라이브러리를 사용할 경우 하나의 객체를 선택적 인수로 사용
+// 설치 : $npm install react-hook-form
 import { useForm } from 'react-hook-form';
 
 export default function SignUp() {
@@ -6,6 +8,7 @@ export default function SignUp() {
     register,
     handleSubmit,
     watch,
+    // formState : 등록된 필드의 값을 동적으로 설정하고, 양식 상태를 확인하고 업데이트하는 기능
     formState: { errors },
   } = useForm();
 
@@ -18,11 +21,12 @@ export default function SignUp() {
   };
 
   // 변수로 지정해서 사용 가능
+  // register() : input 요소를 React hook form과 연결시켜줌으로써, 검증 규칙을 적용할 수 있게 하는 메서드
   const genderRegister = register('gender', {
     required: '성별은 필수값입니다.',
   });
 
-  // watch() 함수: 실시간으로 입력값 확인
+  // watch() 함수: form state에 관한 정보를 담고 있는 객체. 실시간으로 입력값을 확인한다
   console.log(watch('ID'));
 
   return (
