@@ -1,4 +1,6 @@
 // ⭐ Hook Form
+// useForm : React에서 form의 validation을 도와주는 라이브러리이다. 이 라이브러리를 사용할 경우 하나의 객체를 선택적 인수로 사용
+// 설치 : $npm install react-hook-form
 import { useForm } from 'react-hook-form';
 
 export default function SignUp() {
@@ -6,6 +8,7 @@ export default function SignUp() {
     register,
     handleSubmit,
     watch,
+    // formState : 등록된 필드의 값을 동적으로 설정하고, 양식 상태를 확인하고 업데이트하는 기능
     formState: { errors },
   } = useForm();
 
@@ -18,21 +21,22 @@ export default function SignUp() {
   };
 
   // 변수로 지정해서 사용 가능
+  // register() : input 요소를 React hook form과 연결시켜줌으로써, 검증 규칙을 적용할 수 있게 하는 메서드
   const genderRegister = register('gender', {
     required: '성별은 필수값입니다.',
   });
 
-  // watch() 함수: 실시간으로 입력값 확인
+  // watch() 함수: form state에 관한 정보를 담고 있는 객체. 실시간으로 입력값을 확인한다
   console.log(watch('ID'));
 
   return (
     <>
       <h4>React Hook Form 테스트</h4>
-      {/* handleSubmit(onValid[, onInvalid] ) */}
+      {/* handleSubmit(onValid[, onInvalid] ) : 폼의 제출을 처리하는 함수 */}
       {/* onValid : 폼을 성공적으로 전송할 수 있는 상태가 되었을 때 onValid 콜백함수를 실행 */}
       {/* onInvalid : (대괄호 안은 선택값)폼을 제출할 수 없을 때 onInvalid 콜백함수를 실행 */}
       <form onSubmit={handleSubmit(onValid, onInvalid)}>
-        {/* register(인자 1 name, 인자 2 객체(정규표현식)) */}
+        {/* register(인자 1 name, 인자 2 객체(정규표현식)) : 입력 필드를 리액트 훅 폼에 등록하는 함수. 각 입력 필드에 대한 상태 관리와 유효성 검사를 손쉽게 처리할 수 있다 */}
         {/* register("ID") 함수는 { name: id } 객체를 반환하므로 스프레드 연산자 이용 */}
         <input
           type="text"
