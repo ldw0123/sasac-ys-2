@@ -50,6 +50,8 @@ INSERT INTO orders VALUES(NULL, 'imminji01', '초코파이', 5000, 2);
 
 select * from orders;
 
+
+
 -- myplace db 생성
 CREATE DATABASE myplace
 DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;
@@ -139,3 +141,63 @@ INSERT INTO gallery(g_name, address, deadline, website, category, detailaddr, im
 INSERT INTO gallery(g_name, address, deadline, website, category, detailaddr, imgurl) VALUES('소설가 구보씨의 일일-구보의 구보', '서울 강남구 영동대로 138길 23', '2023.10.13~2024.01.28', '', 'artgallery', '서울 강남구 영동대로 138길 23 1층', 'https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F003%2F2023%2F10%2F15%2FNISI20231015_0001386260_web_20231015142420_20231015145704788.jpg&type=sc960_832');
 INSERT INTO gallery(g_name, address, deadline, website, category, detailaddr, imgurl) VALUES('몽돌, 숲 그래고 제주', '서울 강남구 논료로 132길6', '2023.11.01~2023.11.28', '', 'artgallery', '서울 강남구 논현로 132길 6 미래빌딩 1F', 'https://search.pstatic.net/common?type=o&size=174x242&quality=85&direct=true&src=https%3A%2F%2Fcsearch-phinf.pstatic.net%2F20231025_48%2F1698217363148ywK6r_JPEG%2F360_main_thumb_url_1698217363113.jpg');
 INSERT INTO gallery(g_name, address, deadline, website, category, detailaddr, imgurl) VALUES('KNOT KNOT LAND', '서울 송파구 올림픽로 300', '2023.10.13~2023.12.10', 'https://www.lotteshopping.com/gallery/exhibitionDetail?gallyNo=GAN00000000000001576', 'artgallery', '서울 송파구 올림픽로300 롯데백화점 잠실 에비뉴엘 6층', 'https://search.pstatic.net/sunny?src=https%3A%2F%2Fminfo.lotteshopping.com%2Fcontent%2Fgallery%2F202310%2FGAN00000000000001576%2F20231012162040886_4.png&type=fff208_208');
+
+
+
+-- meongtogether DB 생성
+CREATE DATABASE meongtogether
+DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;
+use meongtogether;
+create table User(
+	user_id varchar(20) not null primary key,
+    password varchar(255) not null,
+    salt varchar(255) not null,
+    nickname varchar(20) not null,
+    email varchar(50) not null,
+    image varchar(500),
+    dog_name varchar(20),
+    dog_gender varchar(10),
+    dog_age int,
+    dog_intro varchar(255)
+);
+create table Board(
+	board_id int not null auto_increment primary key,
+    user_id varchar(20) not null,
+    category varchar(30) not null,
+    title varchar(255) not null,
+    content text not null,
+    image varchar(500),
+    makeboard date,
+    viewcount int default 0,
+    foreign key (user_id) references User(user_id) on delete cascade
+);
+create table Comment(
+	comment_id int not null auto_increment primary key,
+    board_id int not null,
+    user_id varchar(20) not null,
+    comment_content varchar(255) not null,
+    foreign key (board_id) references Board(board_id) on delete cascade,
+    foreign key (user_id) references User(user_id) on delete cascade
+);
+create table Chat_Room(
+	chat_id int not null auto_increment primary key,
+    chat_name varchar(100),
+    chat_time datetime default now(),
+    chat_category varchar(30) not null
+);
+create table Chat_Member(
+	user_id varchar(20) not null,
+    chat_id int not null,
+    foreign key (user_id) references User(user_id) on delete cascade,
+    foreign key (chat_id) references Chat_Room(chat_id) on delete cascade
+);
+create table Message(
+	msg_id bigint not null auto_increment primary key,
+    user_id varchar(20) not null,
+    chat_id int not null,
+    msg_content text not null,
+    send_time datetime default now(),
+    msg_check varchar(10),
+    foreign key (user_id) references User(user_id) on delete cascade,
+    foreign key (chat_id) references Chat_Room(chat_id) on delete cascade
+);
