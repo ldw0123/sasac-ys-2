@@ -17,7 +17,7 @@
 // import { configureStore } from '@reduxjs/toolkit'; // Redux Toolkit에서 제공하는 configureStore 함수 불러오기
 // import { composeWithDevTools } from 'redux-devtools-extension'; // Redux Dev Tools 크롬 확장 프로그램
 
-// const initialValue = { number: 100 }; // state의 number 초기값 설정
+// const initialValue = { number: 100 } ; // state의 number 초기값 설정
 
 // // state 객체: {number: value}
 // const reducer = (state = initialValue, action) => {

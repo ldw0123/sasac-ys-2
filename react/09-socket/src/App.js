@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       {/* 실습 1 */}
-      <Practice1 />
+      {/* <Practice1 /> */}
 
       {/* 채팅 실습 2, 3 */}
       {/* <Chatting1 /> */}
@@ -17,7 +17,7 @@ function App() {
       {/* <Chatting2 /> */}
 
       {/* 채팅 실습 4, 5 */}
-      {/* <Chatting3 /> */}
+      <Chatting3 />
     </div>
   );
 }
