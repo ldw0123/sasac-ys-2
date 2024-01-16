@@ -67,7 +67,7 @@ public class Operator {
         System.out.println("j && l >> " + (j && l));
         System.out.println("j || k >> " + (j || k)); // OR: j, k 둘 중 하나라도 참이면 참
         System.out.println("!j >> " + (!j)); // NOT: 부정
-        
+
         // 삼항 연산자
         System.out.println("=== 삼항 연산자 ===");
         System.out.println(x > y ? "x는 y보다 크다" : "x는 y보다 크지 않다");
