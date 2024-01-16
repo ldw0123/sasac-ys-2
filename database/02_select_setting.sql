@@ -148,6 +148,7 @@ INSERT INTO gallery(g_name, address, deadline, website, category, detailaddr, im
 CREATE DATABASE meongtogether
 DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;
 use meongtogether;
+
 create table User(
 	user_id varchar(20) not null primary key,
     password varchar(255) not null,
@@ -201,3 +202,56 @@ create table Message(
     foreign key (user_id) references User(user_id) on delete cascade,
     foreign key (chat_id) references Chat_Room(chat_id) on delete cascade
 );
+create table Community (
+        community_id int not null auto_increment primary key,
+    community_name varchar(50) not null,
+    community_local varchar(10) not null,
+    introduce varchar(300)
+);
+create table Community_Member (
+        id int not null auto_increment primary key,
+    user_id varchar(20) not null,
+    community_id int not null,
+    manager varchar(20),
+    foreign key (user_id) references User(user_id) on delete cascade,
+    foreign key (community_id) references Community(community_id) on delete cascade
+);
+
+alter table chat_member add column id int not null auto_increment primary key;
+
+ALTER TABLE Comment ADD makecomment DATE;
+
+select * from user;
+select * from board;
+select * from community;
+select * from community_member;
+select * from comment;
+
+-- 소모임 게시판 더미데이터
+-- 유저 아이디 중복 안됨
+insert into board(user_id, title, category, content) values ("qwe123","테스트 글 1", "모임_자유", "안녕");
+insert into board(user_id, title, category, content) values ("qwe123","테스트 글 2", "모임_자유", "안녕!!!");
+insert into board(user_id, title, category, content) values ("qwe123","테스트 글 3", "모임_자유", "죽겠다!!!");
+insert into Community(community_id, community_name, community_local, introduce) values ("1","1강아지모임", "서울", "강아지모임입니다");
+insert into Community(community_id, community_name, community_local, introduce) values ("2","2강아지모임", "서울", "2강아지모임입니다");
+insert into Community(community_id, community_name, community_local, introduce) values ("3","3강아지모임", "서울", "3강아지모임입니다");
+insert into Community(community_id, community_name, community_local, introduce) values ("4","4강아지모임", "부산", "4강아지모임입니다");
+insert into Community(community_id, community_name, community_local, introduce) values ("5","5강아지모임", "부산", "5강아지모임입니다");
+insert into Community_Member (nickname, image) values ("테스트멤버1", null);
+insert into Community_Member (nickname, image) values ("테스트멤버2", null);
+-- 유저 아이디 중복 안됨 board
+insert into board(user_id, title, category, content) values ("test1","1번쨰 모임 테스트 글 1", "모임_2_자유", "안녕");
+insert into board(user_id, title, category, content) values ("test1","1번쨰 모임 테스트 글 2", "모임_2_자유", "안녕!!!");
+insert into board(user_id, title, category, content) values ("test1","1번쨰 모임 테스트 글 3", "모임_2_자유", "죽겠다!!!");
+
+
+
+
+
+
+
+
+
+
+
+
