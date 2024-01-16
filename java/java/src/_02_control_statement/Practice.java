@@ -47,5 +47,16 @@ public class Practice {
             default -> "모르겠어용";
         };
         System.out.println(gender);
+
+        ///////////////////////////////////////////
+        
+        // 실습 3
+        System.out.println("숫자를 입력하세요");
+        int num = sc.nextInt();
+        int i = 1;
+        while (i <= num) {
+            System.out.println(i);
+            i++;
+        }
     }
 }

@@ -2,6 +2,7 @@ package _02_control_statement;
 
 import java.util.Scanner;
 
+// 조건문
 public class ConditionalStatement {
     public static void main(String[] args) {
         int number = 10;
