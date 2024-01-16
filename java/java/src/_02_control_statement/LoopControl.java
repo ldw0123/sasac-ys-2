@@ -36,7 +36,7 @@ public class LoopControl {
         // ex) List, Set, Map, Stack, Vector...
         System.out.println("====================");
         String[] arrA = {"A", "B", "C"}; // String 배열
-        for (String b : arrA) { // a라는 변수에 배열 array를 담는다
+        for (String b : arrA) { // a 라는 변수에 arrA 배열을 담는다
             System.out.println("a = " + b);
         }
 
