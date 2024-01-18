@@ -2,7 +2,7 @@ package _02_control_statement;
 
 import java.util.Scanner;
 
-public class Practice {
+public class Practice1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -49,7 +49,7 @@ public class Practice {
         System.out.println(gender);
 
         ///////////////////////////////////////////
-        
+
         // 실습 3
         System.out.println("숫자를 입력하세요");
         int num = sc.nextInt();
@@ -57,6 +57,10 @@ public class Practice {
         while (i <= num) {
             System.out.println(i);
             i++;
+
+
         }
     }
 }
+
+
