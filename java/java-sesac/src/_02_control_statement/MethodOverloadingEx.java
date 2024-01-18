@@ -22,8 +22,8 @@ public class MethodOverloadingEx {
 
         // 삼각형의 넓이
         System.out.println("삼각형의 밑변과 높이를 입력하세요");
-        int triA = sc.nextInt();
-        int triB = sc.nextInt();
+        double triA = sc.nextInt();
+        double triB = sc.nextInt();
         System.out.println("밑변 " + triA + ", 높이 " +triB + "인 삼각형의 넓이: " + area.areaMethod(triA, triB));
     }
 
@@ -38,7 +38,7 @@ public class MethodOverloadingEx {
     }
 
     // 삼각형의 넓이를 계산하는 메서드
-    public double areaMethod(int a, double b) {
+    public double areaMethod(double a, double b) {
         return a * b / 2;
     }
 }
