@@ -12,7 +12,7 @@ public class Casting {
         // - 더 작은 타입에서 더 큰 타입으로의 자동 형변환
         // - 반대의 경우에는 묵시적 형변환 불가능 -> 명시적으로 변환해야 함
         int smallNumber = 10;
-        double bigNumber = smallNumber; // int를 double로 자동형변환
+        double bigNumber = smallNumber; // int를 double로 자동 형변환
 
         System.out.println("small : " + smallNumber);
         System.out.println("big : " + bigNumber);
