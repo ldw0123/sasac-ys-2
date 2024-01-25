@@ -1,4 +1,4 @@
-package _05_class11._04_inheritance;
+package _05_class._04_inheritance;
 
 // 차량에 대해 클래스화 하기
 public class Ex2_Vehicle {

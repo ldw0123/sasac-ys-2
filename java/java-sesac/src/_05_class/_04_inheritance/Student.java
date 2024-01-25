@@ -1,4 +1,4 @@
-package _05_class11._04_inheritance;
+package _05_class._04_inheritance;
 
 // 자식 클래스
 public class Student extends Person {

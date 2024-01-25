@@ -1,4 +1,4 @@
-package _05_class11._04_inheritance;
+package _05_class._04_inheritance;
 
 // Student 클래스 실행
 public class StudentRun {

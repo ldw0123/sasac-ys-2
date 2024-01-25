@@ -1,4 +1,4 @@
-package _05_class11._04_inheritance;
+package _05_class._04_inheritance;
 
 // AnimalRunEx 클래스는 AnimalEx 클래스를 실행시킴
 public class Ex1_AnimalRun {
