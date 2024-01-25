@@ -2,7 +2,7 @@ package _05_class._04_inheritance;
 
 // 자식 클래스
 public class Student extends Person {
-    // Case1. 필드가 public 인 경우
+// Case1. 필드가 public 인 경우
 
 //    public String campus;
 //

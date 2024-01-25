@@ -7,8 +7,11 @@ package _05_class._04_inheritance;
 
 // 부모 클래스 Person
 // 자식 클래스 Student
+
+// 클래스를 public 으로 선언하면 다른 클래스에서 해당 클래스의 객체를 생성할 수 있다
+// 다른 클래스에서 public 클래스의 객체를 생성하여 사용할 수 있으며, 객체의 상태를 변경하거나 메서드를 호출하여 원하는 동작을 수행할 수 있다
 public class Person {
-    // Case 1. 필드가 public인 경우
+//    Case 1. 필드가 public인 경우
 //    public String name;
 //    public int age;
 //
