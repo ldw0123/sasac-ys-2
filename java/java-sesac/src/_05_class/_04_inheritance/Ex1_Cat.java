@@ -1,4 +1,4 @@
-package _05_class._04_inheritance;
+package _05_class11._04_inheritance;
 
 public class Ex1_Cat extends Ex1_Animal {
 

@@ -1,4 +1,4 @@
-package _05_class._04_inheritance;
+package _05_class11._04_inheritance;
 
 // 상속 Step1
 // - Java에서는 다중 상속 지원 x
