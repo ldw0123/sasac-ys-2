@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>실습 1</h3>
+    <div>
+        <p th:if="${age}<20" th:text="${age + '세는 미성년자입니다'}"></p>
+        <p th:if="${age}>20" th:text="${age + '세는 성인입니다'}"></p>
+    </div>
+</body>
+</html>

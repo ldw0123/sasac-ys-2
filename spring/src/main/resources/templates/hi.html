@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- hi.html 파일에서 thymeleaf 템플릿(=템플릿 문법)을 사용하겠다는 뜻 -->
+<!-- thymeleaf 는 전부 다 속성으로 넣어 준다 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi template file</h1>
+    <h3>th:text & th:utext</h3>
+    <!-- th: text -> 전달받은 값을 문자열로 보여주는 속성. 태그 안의 텍스트(문자열)를 서버에서 전달받은 값에 따라 표현할 수 있다 -->
+    <p th:text="${name}">코딩온</p>
+    <p th:text="${key}">새싹</p>
+
+    <!-- th: utext -> 전달받은 값을 html 로 보여주는 속성. 태그를 인식해서 적용해 보여준다  -->
+    <p th:text="${name2}"></p>
+    <p th:utext="${name2}"></p>
+    <br/>
+
+    <h3>th:value</h3>
+    <!-- th:value -> 요소의 value 값을 설정할 때 사용되는 속성 -->
+    <input type="text" th:value="${name}" />
+    <button th:value="${name}">버튼</button>
+    <br/><br/>
+
+    <h3>th: with</h3>
+    <!-- th:with -> 템플릿 내에서 변수를 지정해 사용할 때 이용 -->
+    <!-- temp 라는 변수에 ${name} 이라는 값을 넣고, 변수를 사용했다 -->
+    <div th:with="temp=${name}" th:text="${temp}" > </div>
+    <br/>
+
+    <h3>th:switch</h3>
+    <!-- th:switch -> switch-case 문을 이용. * 는 default -->
+    <div  th:switch="${name}">
+        <p th:case="'코딩온'">코딩온 입니다</p>
+        <p th:case="'새싹'">새싹 입니다</p>
+        <p th:case="*">코딩온도 새싹도 아닙니다</p>
+    </div>
+    <br/>
+
+    <h3>th:if</h3>
+    <!-- th:if -> 조건문 (else if 가 없다) -->
+    <!-- name 으로 넘어온 값이 코딩온이라면, 그 name 을 보여주어라 -->
+    <p th:if="${name}=='코딩온'" th:text="${name}"></p>
+    <!-- if else 를 처리하고 싶으면 th:if 와 th:unless 모두 동일한 조건을 가져야 한다 -->
+    <p th:unless="${name}=='코딩온'" th:text="'홍길동'"></p>
+    <br/>
+
+    <h3>th:each</h3>
+    <!-- 반복문을 이용. 반복시킬 요소에 th:each 를 걸어준다 -->
+    <ul>
+        <li th:each="item:${item1}">
+            <span th:text="${item}"></span>
+        </li>
+        <br/>
+        <li th:each="item:${item2}">
+            <span th:text="${item}"></span>
+        </li>
+    </ul>
+</body>
+</html>
