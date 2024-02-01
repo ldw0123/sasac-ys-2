@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>POST 방식</title>
+</head>
+<body>
+    <form action="/pracice/post" method="post">
+        <label>폼 전송 - 실습</label>
+        <fieldset>
+        이름 <input type="text" />
+        성별 <input type="radio" name="gender" value="남자" />
+            <input type="radio" name="gender" value="여자" />
+        </fieldset>
+        <button type="submit">회원가입</button>
+    </form>
+</body>
+</html>
