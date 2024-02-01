@@ -192,15 +192,15 @@ public class MainController {
         return userDTO.getName() + " " + userDTO.getAge();
     }
 
-        /*
-         ⭐ @RequestBody : 요청의 본문에 있는 데이터(body)를 받아 필드에 값을 직접 주입하는 어노테이션
-          - 요청의 본문에 있는 데이터(req.body)를 읽어와서 객체에 매핑
-          - 여기서 매핑이란? 필드 값에 값을 주입하는 것
+    /*
+     ⭐ @RequestBody : 요청의 본문에 있는 데이터(body)를 받아 필드에 값을 직접 주입하는 어노테이션
+      - 요청의 본문에 있는 데이터(req.body)를 읽어와서 객체에 매핑
+      - 여기서 매핑이란? 필드 값에 값을 주입하는 것
 
-          - 일반 폼 전송 -> www-x-form-urlencoded => 쿼리 매개변수
-          - 일반 폼 전송은 @RequestBody 로는 값을 받을 수 없다
-          - @RequestBody 는 요청의 본문에 있는 데이터(body)를 처리할 수 있기 때문에, 전달 받은 요청의 형식이 json 또는 xml 일 때만 실행이 가능
-        */
+      - 일반 폼 전송 -> www-x-form-urlencoded => 쿼리 매개변수
+      - 일반 폼 전송은 @RequestBody 로는 값을 받을 수 없다
+      - @RequestBody 는 요청의 본문에 있는 데이터(body)를 처리할 수 있기 때문에, 전달 받은 요청의 형식이 json 또는 xml 일 때만 실행이 가능
+    */
     @GetMapping("/dto/response11")
     @ResponseBody
     public String dtoResponse11(@RequestBody UserDTO userDTO) {
@@ -311,16 +311,16 @@ public class MainController {
       url 에 아무것도 없는데(값이 들어오지 않는데), @RequestParam 의 required 가 기본값이 true 이기 때문에 오류
       따라서, required=false 를 명기해주면 정상 작동
     */
-    public String axiosRes3(@RequestParam String name, @RequestParam String age){
-        return "이름: " + name + ", 나이: "+ age;
+    public String axiosRes3(@RequestParam String name, @RequestParam String age) {
+        return "이름: " + name + ", 나이: " + age;
     } // X
 
     // axios + post 데이터로 보내면 -> @RequestBody (실행은 되나, null)
     @PostMapping("/axios/response4")
     @ResponseBody
-    public String axiosRes4(UserDTO userDTO){
+    public String axiosRes4(UserDTO userDTO) {
         // Axios 로 POST 를 보낼 경우 본문에 데이터가 들어가기에 @ModelAttribute 가 확인 불가 -> null
-        return "이름:" + userDTO.getName() + ", 나이: "+ userDTO.getAge();
+        return "이름:" + userDTO.getName() + ", 나이: " + userDTO.getAge();
     } // O(null)
     /*
       @ModelAttribute 를 이용해 데이터를 보냈을 때 값이 null
@@ -331,8 +331,8 @@ public class MainController {
     // axios + post 데이터로 보내면 -> @RequestBody (정상 작동)
     @PostMapping("/axios/response5")
     @ResponseBody
-    public String axiosRes5(@RequestBody UserDTO userDTO){
-        return "이름:" + userDTO.getName() + ", 나이: "+ userDTO.getAge();
+    public String axiosRes5(@RequestBody UserDTO userDTO) {
+        return "이름:" + userDTO.getName() + ", 나이: " + userDTO.getAge();
     } // O
 
     ///////////////////////////////////////////////////////////
@@ -356,7 +356,7 @@ public class MainController {
     @GetMapping("/axios/vo/response2")
     @ResponseBody
     public String axiosVoRes2(UserVO userVO) {
-        return "이름: "+ userVO.getName() + ", 나이: "+ userVO.getAge();
+        return "이름: " + userVO.getName() + ", 나이: " + userVO.getAge();
     } // o(null)
 
     // 3. post + @RequestParam(require=ture) -> X
@@ -369,56 +369,56 @@ public class MainController {
     // 4. post + @ModelAttribute VO -> O (null)
     @PostMapping("/axios/vo/response4")
     @ResponseBody
-    public String axiosVoRes4(UserVO userVO){
-        return "이름: "+ userVO.getName() + ", 나이: "+ userVO.getAge();
+    public String axiosVoRes4(UserVO userVO) {
+        return "이름: " + userVO.getName() + ", 나이: " + userVO.getAge();
     }
 
     // 5. post + @RequestBody VO -> O
     @PostMapping("/axios/vo/response5")
     @ResponseBody
-    public String axiosVoRes5(@RequestBody UserVO userVO){
+    public String axiosVoRes5(@RequestBody UserVO userVO) {
         // axios post 로 데이터를 보내면 요청의 본문(body)에 데이터가 들어간다
         // @RequestBody 는 요청의 본문에 있는 데이터를 읽을 수 있다
         // UserVO 클래스는 setter 메서드가 없다
-        // @RequestBody 는 데이터를 각각의 필드(변수)에 직접 값을 주입한다
+        // @RequestBody 는 setter 함수 실행이 아니라, 데이터를 각각의 필드(변수)에 직접 값을 주입한다. 필드에 내장된 set 함수를 실행
         // 즉, @RequestBody 는 UserVO 나 UserDTO 상관없이 setter 메서드의 유무와 관계없이 변수에 값을 넣을 수 있다
-        return "이름: "+ userVO.getName() + ", 나이: "+ userVO.getAge();
+        return "이름: " + userVO.getName() + ", 나이: " + userVO.getAge();
     }
-    // @RequestBody로 값을 전달할때 userVO에 setter 함수가 없어도 값이 들어간다.
-    // @RequestBody는 setter 함수 실행이 아니라 각각의 필드(변수)에 직접적으로 값을 주입하면서 매핑
-    // @ModelAttribute가 setter 함수를 실행해 값을 넣어준다면
-    // @RequestBody는 각각의 필드(변수)에 직접적으로 값을 주입한다. 필드에 내장된 set 함수를 실행
-    // 즉, @RequestBody는 UserVO UsrDTO 상관없이 setter 메소드의 유무와 관계없이 변수에 값을 넣을 수 있다.
+    // @RequestBody 로 값을 전달할때 userVO에 setter 함수가 없어도 값이 들어간다
+    // @RequestBody 는 setter 함수 실행이 아니라 각각의 필드(변수)에 직접적으로 값을 주입하면서 매핑
+    // @ModelAttribute 가 setter 함수를 실행해 값을 넣어준다면
+    // @RequestBody 는 각각의 필드(변수)에 직접적으로 값을 주입한다. 필드에 내장된 set 함수를 실행
+    // 즉, @RequestBody 는 UserVO UsrDTO 상관없이 setter 메서드의 유무와 관계없이 변수에 값을 넣을 수 있다
 
     /*
-    1. 일반 폼 전송
-    - RequestParam : GET, POST 메서드 둘 다 가능
-    - PathVariable : GET만 가능
+      1. 일반 폼 전송
+       - RequestParam : GET, POST 메서드 둘 다 가능
+       - PathVariable : GET 만 가능
 
-    2. DTO 이용 - 일반 폼 전송(url 에 들어감)
-    - GET 가능하다
-    - POST + ModelAttribute : O (ModelAttribute는 url에 들어가기 때문)
-    - POST + RequestBody : X
+      2. DTO 이용 - 일반 폼 전송(url 에 들어감)
+       - GET 가능하다
+       - POST + ModelAttribute : O (ModelAttribute 는 url 에 들어가기 때문)
+       - POST + RequestBody : X
 
-    3. VO 이용 - 일반 폼 전송
-    - GET -> null
-    - POST + ModelAttribute : null
-    - POST + RequestBody : X
+      3. VO 이용 - 일반 폼 전송
+       - GET -> null
+       - POST + ModelAttribute : null
+       - POST + RequestBody : X
 
-    4. AXIOS - DTO
-    - GET RequestParam : O
-    - GET ModelAttribute : O
-    - GET RequestBody : X
-    - POST RequestParam : X
-    - POST ModelAttribute : null
-    - POST RequestBody : O
+      4. AXIOS - DTO
+       - GET RequestParam : O
+       - GET ModelAttribute : O
+       - GET RequestBody : X
+       - POST RequestParam : X
+       - POST ModelAttribute : null
+       - POST RequestBody : O
 
-    5. AXIOS VO
-    - GET RequestParam : O
-    - GET ModelAttribute : NULL
-    - GET RequestBody : X
-    - POST RequestParam : X
-    - POST ModelAttribute : null
-    - POST RequestBody : O
+      5. AXIOS - VO
+       - GET RequestParam : O
+       - GET ModelAttribute : null
+       - GET RequestBody : X
+       - POST RequestParam : X
+       - POST ModelAttribute : null
+       - POST RequestBody : O
     */
 }

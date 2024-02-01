@@ -1,4 +1,5 @@
 // 2024.02.01.
+// DTO
 
 package com.sesac.spring.dto;
 
