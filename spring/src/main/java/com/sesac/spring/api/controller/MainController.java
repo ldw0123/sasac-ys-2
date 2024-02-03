@@ -1,9 +1,9 @@
 // 2024.02.01. Spring 2 - Get, Post 수업
 
-package com.sesac.spring.controller;
+package com.sesac.spring.api.controller;
 
-import com.sesac.spring.dto.UserDTO;
-import com.sesac.spring.vo.UserVO;
+import com.sesac.spring.api.dto.UserDTO;
+import com.sesac.spring.api.vo.UserVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

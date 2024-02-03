@@ -1,7 +1,7 @@
 // 2024.02.01.
 // DTO
 
-package com.sesac.spring.dto;
+package com.sesac.spring.api.dto;
 
 public class UserDTO {
 

@@ -1,7 +1,7 @@
 // 2024.02.01.
 // VO
 
-package com.sesac.spring.vo;
+package com.sesac.spring.api.vo;
 
 import lombok.Getter;
 
