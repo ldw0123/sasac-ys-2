@@ -244,10 +244,23 @@ insert into board(user_id, title, category, content) values ("test1","1번쨰 �
 insert into board(user_id, title, category, content) values ("test1","1번쨰 모임 테스트 글 2", "모임_2_자유", "안녕!!!");
 insert into board(user_id, title, category, content) values ("test1","1번쨰 모임 테스트 글 3", "모임_2_자유", "죽겠다!!!");
 
+-- sesac DB ( Spring Boot MyBatis 수업 )
+CREATE DATABASE sesac
+DEFAULT CHARACTER SET UTF8MB4 DEFAULT COLLATE UTF8MB4_UNICODE_CI;
+use sesac;
+create table user(
+	id int not null auto_increment primary key,
+    name varchar(20) not null,
+    nickname varchar(20) not null
+    );
 
+select * from user;
 
+-- table DROP
+DROP TABLE user;
 
-
+-- n번 id 삭제
+DELETE FROM user WHERE id = 2; 
 
 
 
