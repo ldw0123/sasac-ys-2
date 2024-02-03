@@ -396,12 +396,12 @@ public class MainController {
        - PathVariable : GET 만 가능
 
       2. DTO 이용 - 일반 폼 전송(url 에 들어감)
-       - GET 가능하다
+       - GET : O
        - POST + ModelAttribute : O (ModelAttribute 는 url 에 들어가기 때문)
        - POST + RequestBody : X
 
       3. VO 이용 - 일반 폼 전송
-       - GET -> null
+       - GET : null
        - POST + ModelAttribute : null
        - POST + RequestBody : X
 
