@@ -271,8 +271,9 @@ DROP TABLE user;
 -- n번 id 삭제
 DELETE FROM user WHERE id = 2; 
 
+-- JPA 수업
+desc student;
 
-
-
-
+-- JPA 수업 (data 삽입)
+INSERT INTO student(name, nickname) VALUES("이름", "닉네임")
 
