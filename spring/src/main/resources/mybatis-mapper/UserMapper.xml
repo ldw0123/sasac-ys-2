@@ -7,8 +7,8 @@
 <!-- mapper 태그 안에 SQL 문 작성 -->
 <!-- xml 파일을 Mapper 인터페이스에 연결 : 패키지명.mapper.UserMapper (Mapper 가 위치한 경로) -->
 <!-- retrieveAll() 이라는 메서드가 실행이 될 때, domain.User 타입의 자바 객체로 매핑하겠다는 의미  -->
-<mapper namespace="com.sesac.spring.mapper.UserMapper">
-    <select id="retrieveAll" resultType="com.sesac.spring.domain.User">
+<mapper namespace="com.sesac.spring._02_mybatis.mapper.UserMapper">
+    <select id="retrieveAll" resultType="com.sesac.spring._02_mybatis.domain.User">
         SELECT user.* FROM user
     </select>
 </mapper>
