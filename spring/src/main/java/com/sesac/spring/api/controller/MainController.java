@@ -391,6 +391,15 @@ public class MainController {
     // 즉, @RequestBody 는 UserVO UsrDTO 상관없이 setter 메서드의 유무와 관계없이 변수에 값을 넣을 수 있다
 
     /*
+      (정리) 클라이언트에서 서버로 요청을 보낼 때
+
+      [요청]
+      - GET / POST 방식
+      - 일반 폼 전송 / 동적 폼 전송(AXIOS)
+
+      [컨트롤러]
+      - 변수 / DTO(getter, setter 존재) / VO(getter 만 존재)
+
       1. 일반 폼 전송
        - RequestParam : GET, POST 메서드 둘 다 가능
        - PathVariable : GET 만 가능
@@ -405,7 +414,7 @@ public class MainController {
        - POST + ModelAttribute : null
        - POST + RequestBody : X
 
-      4. AXIOS - DTO
+      4. DTO 이용 - AXIOS (동적 폼 전송)
        - GET RequestParam : O
        - GET ModelAttribute : O
        - GET RequestBody : X
@@ -413,12 +422,23 @@ public class MainController {
        - POST ModelAttribute : null
        - POST RequestBody : O
 
-      5. AXIOS - VO
+      5. VO 이용 - AXIOS (동적 폼 전송)
        - GET RequestParam : O
        - GET ModelAttribute : null
        - GET RequestBody : X
        - POST RequestParam : X
        - POST ModelAttribute : null
        - POST RequestBody : O
+    */
+
+    /*
+       동적 폼 전송 (POST, PATCH, DELETE 등 body 에 데이터를 보내는 친구)
+       -> @RequestBody 객체(setter 필수x) 로 받아야 한다
+
+       일반 폼 전송 (+ 동적 폼 전송 GET)
+       -> 변수 하나 받을 거라면: @RequestParam
+       -> 객체로 받을 거라면: @ModelAttribute (setter 필수!)
+
+       ex) @RequestBody Person person 객체는 setter 가 없을 수도 있다
     */
 }
