@@ -1,4 +1,4 @@
-package com.sesac.spring.api.controller;
+package com.sesac.spring._01_api.controller;
 
 import lombok.Getter;
 import lombok.Setter;

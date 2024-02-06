@@ -1,4 +1,4 @@
-package com.sesac.spring.domain;
+package com.sesac.spring.mybatis.domain;
 
 // 실습 BoardController.java
 

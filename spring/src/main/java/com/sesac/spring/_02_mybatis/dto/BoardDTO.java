@@ -1,4 +1,4 @@
-package com.sesac.spring.dto;
+package com.sesac.spring.mybatis.dto;
 
 import lombok.Getter;
 import lombok.Setter;

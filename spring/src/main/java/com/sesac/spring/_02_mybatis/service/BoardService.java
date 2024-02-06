@@ -1,8 +1,8 @@
-package com.sesac.spring.service;
+package com.sesac.spring.mybatis.service;
 
-import com.sesac.spring.domain.Board;
-import com.sesac.spring.dto.BoardDTO;
-import com.sesac.spring.mapper.BoardMapper;
+import com.sesac.spring.mybatis.domain.Board;
+import com.sesac.spring.mybatis.dto.BoardDTO;
+import com.sesac.spring.mybatis.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

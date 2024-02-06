@@ -1,9 +1,9 @@
 // MyBatis 수업 controller
 
-package com.sesac.spring.controller;
+package com.sesac.spring.mybatis.controller;
 
-import com.sesac.spring.dto.UserDTO;
-import com.sesac.spring.service.UserService;
+import com.sesac.spring.mybatis.dto.UserDTO;
+import com.sesac.spring.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

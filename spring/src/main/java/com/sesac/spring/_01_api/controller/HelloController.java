@@ -1,12 +1,10 @@
 // 2024.01.30. Spring 수업
 
-package com.sesac.spring.api.controller;
+package com.sesac.spring._01_api.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.ArrayList;
 
 // @Controller : 해당 클래스가 controller 역할을 한다는 것을 Spring 에게 알려준다
 // 자동으로 import 된다

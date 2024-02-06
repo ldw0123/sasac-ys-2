@@ -1,8 +1,8 @@
-package com.sesac.spring.service;
+package com.sesac.spring.mybatis.service;
 
-import com.sesac.spring.domain.User;
-import com.sesac.spring.dto.UserDTO;
-import com.sesac.spring.mapper.UserMapper;
+import com.sesac.spring.mybatis.domain.User;
+import com.sesac.spring.mybatis.dto.UserDTO;
+import com.sesac.spring.mybatis.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
