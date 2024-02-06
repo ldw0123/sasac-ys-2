@@ -1,6 +1,6 @@
-package com.sesac.spring.mybatis.mapper;
+package com.sesac.spring._02_mybatis.mapper;
 
-import com.sesac.spring.mybatis.domain.Board;
+import com.sesac.spring._02_mybatis.domain.Board;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

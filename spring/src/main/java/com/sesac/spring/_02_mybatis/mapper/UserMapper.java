@@ -1,6 +1,6 @@
-package com.sesac.spring.mybatis.mapper;
+package com.sesac.spring._02_mybatis.mapper;
 
-import com.sesac.spring.mybatis.domain.User;
+import com.sesac.spring._02_mybatis.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Update;

@@ -1,7 +1,7 @@
-package com.sesac.spring.mybatis.controller;
+package com.sesac.spring._02_mybatis.controller;
 
-import com.sesac.spring.mybatis.dto.BoardDTO;
-import com.sesac.spring.mybatis.service.BoardService;
+import com.sesac.spring._02_mybatis.dto.BoardDTO;
+import com.sesac.spring._02_mybatis.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
