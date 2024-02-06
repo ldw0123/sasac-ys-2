@@ -1,0 +1,90 @@
+<!-- board.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>게시판</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function searchBoard() {
+            // 검색어가 있으면 일치하는 제목의 개수를 가져오고
+            // 검색어가 없으면 전체 게시글이 몇 개인지 가져온다.
+            var form = document.getElementById('form_search');
+            axios.get(`/board/mybatis/search?word=${form.word.value}`).then((res) => {
+                alert('일치하는 제목의 게시글은 ' + res.data + '개 입니다.');
+            });
+        }
+
+        function writeBoard() {
+            // 제목, 내용, 작성자를 입력하고 "작성"버튼 눌렀을 때
+            var form = document.getElementById('form_board');
+            var data = {
+                title: form.title.value,
+                content: form.content.value,
+                writer: form.writer.value,
+            };
+
+            axios.post(`/board/mybatis`, data).then((res) => {
+                location.reload();
+            });
+        }
+        function editBoard(id) {
+
+            var form = document.getElementById('form_board');
+            var data = {
+                // 아래의 데이터가 명확하지 않으면, DTO 에 값이 들어가지 않는다
+                boardID: id,
+                title: form.title.value,
+                content: form.content.value,
+                writer: form.writer.value,
+            };
+            axios.patch(`/board/mybatis`, data).then((res) => {
+                location.reload();
+            });
+        }
+        function deleteBoard(id) {
+            axios.delete(`/board/mybatis?id=${id}`).then((res) => {
+                location.reload();
+            });
+        }
+    </script>
+</head>
+<body>
+<h3>이것은 게시판</h3>
+<form id="form_search">
+    <input type="text" name="word" placeholder="검색어" /><button type="button" onclick="searchBoard()">
+    검색
+</button>
+</form>
+<form id="form_board">
+    <input type="text" name="title" placeholder="제목" />
+    <input type="text" name="content" placeholder="내용" />
+    <input type="text" name="writer" placeholder="작성자" />
+    <button type="button" onclick="writeBoard()">
+        작성
+    </button>
+</form>
+<br/>
+<table border="1">
+    <tr>
+        <th>No.</th>
+        <th>ID</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>수정</th>
+        <th>삭제</th>
+    </tr>
+    <!--    타임리프 문법 이용해서 게시판 글 보여주기 -->
+    <tr th:each="board:${list}">
+        <td th:text="${board.getNo()}">번호</td>
+        <td th:text="${board.getBoardID()}">ID</td>
+        <td th:text="${board.getTitle()}">제목</td>
+        <td th:text="${board.getWriter()}">작성자</td>
+        <td th:text="${board.getRegistered()}">작성일</td>
+        <td th:onclick="editBoard([[${board.getBoardID()}]])">수정</td>
+        <td th:onclick="deleteBoard([[${board.getBoardID()}]])">삭제</td>
+    </tr>
+</table>
+</body>
+</html>

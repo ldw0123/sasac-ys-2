@@ -253,15 +253,23 @@ create table user(
     name varchar(20) not null,
     nickname varchar(20) not null
     );
+    
+create table board(
+	id int not null auto_increment primary key,
+    title varchar(20) not null,
+    content varchar(100) not null,
+    writer varchar(10) not null,
+    registered timestamp default current_timestamp
+);
 
 select * from user;
+select * from board;
 
 -- table DROP
 DROP TABLE user;
 
 -- n번 id 삭제
 DELETE FROM user WHERE id = 2; 
-
 
 
 

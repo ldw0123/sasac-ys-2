@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sesac.spring.mapper.BoardMapper">
+    <!-- 1. 조회 -->
+    <select id="getBoardAll" resultType="com.sesac.spring.domain.Board">
+        <!-- board table 에서 전체 검색 -->
+        SELECT * FROM board
+    </select>
+    <!-- 2. 작성 -->
+    <insert id="insertBoard" parameterType="com.sesac.spring.domain.Board">
+        INSERT INTO board(title, content, writer)
+        VALUES(#{title}, #{content}, #{writer})
+    </insert>
+    <!-- 3. 수정 -->
+    <update id="patchBoard" parameterType="com.sesac.spring.domain.Board">
+        UPDATE board SET title=#{title}, content=#{content}, writer=#{writer}
+        WHERE id=#{id}
+    </update>
+    <!-- 4. 삭제 -->
+    <!-- int 타입은 wrapper 클래스의 Integer 로! -->
+    <delete id="deleteBoard" parameterType="Integer">
+        DELETE FROM board WHERE id=#{id}
+    </delete>
+    <!-- 5. 검색(조회) -->
+    <select id="searchBoard"
+            parameterType="String"
+            resultType="com.sesac.spring.domain.Board">
+        <!-- 동적 쿼리 생성 -->
+        <!-- 조건 1. 검색어가 없으면 전체 검색 ( SELECT * FROM board) -->
+        <!-- 조건 2. 검색어가 있으면 검색어와 제목이 일치하는 것 ( where title=#{word} ) -->
+        <!-- 조건 2. SELECT * FROM board WHERE title=#{word} -->
+        SELECT * FROM board
+        <where>
+            <!-- word 가 빈 문자열이 아닐 경우 -->
+            <if test="word != ''">
+                AND title=#{word}
+            </if>
+        </where>
+    </select>
+</mapper>
