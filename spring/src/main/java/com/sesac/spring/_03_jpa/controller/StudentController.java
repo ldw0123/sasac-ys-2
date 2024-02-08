@@ -61,5 +61,5 @@ public class StudentController {
 //        // id: 내가 변경할 데이터의 primary key
 //        // name: 내가 변경하고자 하는 name 커럶의 값
 //        return studentService.updateStudent(id, name);
-    }
+//    }
 }

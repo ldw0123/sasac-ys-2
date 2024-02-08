@@ -39,7 +39,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     // 2. 직접 쿼리를 작성해서 연결
     // @Query: 쿼리를 직접 작성
 //    @Query("select s from Student s where s.name = :name") // JPA 쿼리
-    @Query(nativeQuery = true, value = "select * from student where name= :a")
+    @Query(nativeQuery = true, value = "select * from student where name= :name")
     // nativeQuery : 원래 작성하던 쿼리. nativeQuery = true 옵션을 걸어주어야 한다
     List<Student> findTest(String name);
 
