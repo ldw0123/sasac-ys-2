@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -78,5 +79,30 @@ public class StudentService {
 //        return "null";
         
         // Optional<T> : null 일 수도 있는 객체를 감싸는 wrapper 클래스. java 8 부터 등장
+
+        // [실습 1]
+//        public int searchCntByNickname(String nickname) {
+//            // count 라는 method 를 활용
+//            // countByNickname(String nickname) = select count(*)
+//            return studentRepository.countByNickname(nickname);
+//        }
+//        // [실습 2]
+//        public String updateStudent(int id, String name) {
+//            studentRepository.save(Student)
+//            // save() : 새로운 Entity 를 insert 하거나, 기존 Entity 를 update
+//            // insert, update 를 할 때, 기존 객체를 건드리지 않고 객체를 새로 만들어주어야 한다
+//            // T의 기본값(pk)의 상태에 따라 다르게 동작
+//            // - pk 값이 존재하는 경우: pk와 연결된 Entity 를 update
+//            // - pk 값이 없는 경우: 새로운 entity 를 insert
+//            Student student = studentRepository.findById(id)
+//                    .orElseThrow(()->new NoSuchElementException("id is wrong"));
+//
+//            Student modifiedStudent =
+//                    Student.builder().id(id).name(name).nickname(student.getNickname()).type(student.getType()).build();
+//
+//            studentRepository.save(modifiedStudent);
+//            return "UPDATE SUCCESS";
+        }
+
     }
 }

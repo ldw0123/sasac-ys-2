@@ -16,12 +16,6 @@ public class StudentController {
 //    @GetMapping("/count")
 //    public int getCountAll(){}
 
-    /* 1. 전체 검색 ( select * from student)
-       2. 삽입 ( insert into ~~~ )
-       3. 조건에 따른 검색1 ( select * from student where name='' )
-       4. 조건에 따른 검색2 ( select * from student where id = )
-    */
-
     // 1. 전체 검색 ( select * from student)
     @GetMapping("/all") // /student/all
     public List<StudentDTO> getAll() {
@@ -51,8 +45,21 @@ public class StudentController {
     public String searchStudentById(@RequestParam int id) {
         return studentService.searchStudentById(id);
     }
-    
 
 //    @GetMapping("/search")
 //    public ? getSearch(@RequestBody int id){}
+
+    // [실습 1]
+//    @GetMapping("/count")
+//    public int searchCntByNickname(@RequestParam String nickname) {
+//        return studentService.searchCntByNickname(nickname);
+//    }
+//    // [실습 2]
+//    @GetMapping("/update")
+//    public String updateStudent(@RequestParam int id,
+//                                @RequestParam String name) {
+//        // id: 내가 변경할 데이터의 primary key
+//        // name: 내가 변경하고자 하는 name 커럶의 값
+//        return studentService.updateStudent(id, name);
+    }
 }
