@@ -264,6 +264,7 @@ create table board(
 
 select * from user;
 select * from board;
+select * from student;
 
 -- table DROP
 DROP TABLE user;
