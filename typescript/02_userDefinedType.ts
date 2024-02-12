@@ -11,7 +11,7 @@ type productInfo = [string, number];
 const cola: productInfo = ['cola', 2500];
 
 // 객체에 대한 타입을 지정할 경우
-// interface: 객체의 타입을 정의하는 키워드
+// interface: 객체의 속성과 타입을 정의하는 키워드
 // interface는 클래스나 객체가 특정 구조를 따르도록 강제하는 역할을 한다. 객체의 속성과 함수(메서드)의 시그니처(입력 매개변수와 반환 타입)를 정의할 수 있다. 클래스가 특정 메서드를 반드시 구현하도록 강제하는데도 사용될 수 있다
 interface productInfo2 {
   // productInfo2 타입의 interface
