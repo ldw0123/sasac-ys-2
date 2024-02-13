@@ -3,6 +3,7 @@ package lecture.springbootsecurity.service;
 import lecture.springbootsecurity.entity.UserEntity;
 import lecture.springbootsecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 // 유저 생성, 로그인 로직
@@ -10,6 +11,9 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     private UserRepository userRepository; // repository 로 유저 조회
+    
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder; // 암호화
 
     public UserEntity create(UserEntity userEntity) { // 회원가입 할 때 사용되는 메서드
         if (userEntity == null) {
@@ -28,8 +32,21 @@ public class UserService {
     }
 
     // 로그인하는 서비스
+
+    // [before] 암호화 적용 전
+    //   public UserEntity login(String email, String password) {
+    //        return userRepository.findByEmailAndPassword(email, password);
+    //    }
+
+    // [after] 암호화 적용 후
     public UserEntity login(String email, String password) {
-        return userRepository.findByEmailAndPassword(email, password);
+        UserEntity searchUser = userRepository.findByEmail(email);
+
+        // matches(암호화가 안 된 패스워드, 된 패스워드)
+        if(searchUser != null && passwordEncoder.matches(password, searchUser.getPassword())) {
+            return searchUser;
+        }
+        return null;
     }
 
 }

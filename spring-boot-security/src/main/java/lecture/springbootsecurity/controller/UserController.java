@@ -1,17 +1,25 @@
 package lecture.springbootsecurity.controller;
 
+import jakarta.servlet.http.HttpSession;
 import lecture.springbootsecurity.dto.UserDTO;
 import lecture.springbootsecurity.entity.UserEntity;
 import lecture.springbootsecurity.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth") // localhost:8080/auth
+@Slf4j // 로그를 편리하게 찍을 수 있도록 도와준다. 로그 관련 메서드를 편리하게 사용할 수 있다
 public class UserController {
     @Autowired
     UserService userService; // service 호출
+
+    // 비밀번호 암호화
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping("")
     public String getAuth() {
@@ -27,7 +35,7 @@ public class UserController {
             UserEntity user = UserEntity.builder()
                     .email(userDTO.getEmail())
                     .username(userDTO.getUsername())
-                    .password(userDTO.getPassword())
+                    .password(passwordEncoder.encode(userDTO.getPassword())) // 비밀번호 암호화를 해서 보낸다
                     .build();
 
             UserEntity responseUser = userService.create(user);
@@ -48,21 +56,25 @@ public class UserController {
 
     // 로그인
     @PostMapping("/signin")
-    public ResponseEntity<?> loginUser(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> loginUser(HttpSession session, @RequestBody UserDTO userDTO) {
         try {
-        UserEntity user = userService.login(userDTO.getEmail(), userDTO.getPassword());
-        // 유저 조회가 안 되면 null
-        if(user == null) {
-            throw new RuntimeException("로그인에 실패하였습니다");
-        }
+            UserEntity user = userService.login(userDTO.getEmail(), userDTO.getPassword());
+            // 유저 조회가 안 되면 null
+            if (user == null) {
+                throw new RuntimeException("로그인에 실패하였습니다");
+            }
 
-        UserDTO responseUserDTO = UserDTO.builder()
-                .email(user.getEmail())
-                .username(user.getUsername())
-                .id(user.getId())
-                .build();
+            UserDTO responseUserDTO = UserDTO.builder()
+                    .email(user.getEmail())
+                    .username(user.getUsername())
+                    .id(user.getId())
+                    .build();
 
-        return ResponseEntity.ok().body(responseUserDTO);
+//            log.info(); // 정보를 찍음
+//            log.error(); // error 를 찍음
+            log.warn("session id {}", session.getId()); // 경고를 찍음
+            session.setAttribute("userId", user.getId());
+            return ResponseEntity.ok().body(responseUserDTO);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage()); // 에러 메시지를 body 에 담아서 보냄
         }
