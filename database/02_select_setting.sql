@@ -266,6 +266,13 @@ select * from user;
 select * from board;
 select * from student;
 
+create table user (
+    id bigint primary key not null auto_increment,
+    username varchar(20) not null,
+    email varchar(100) not null,
+    password varchar(255) not null
+    );
+
 -- table DROP
 DROP TABLE user;
 
