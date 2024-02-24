@@ -8,13 +8,39 @@ import ClassPropsEx from './components/ClassPropsEx'; // ClassPropsEx.js 불러�
 import PracPropsEx from './components/PracPropsEx'; // 실습
 import PracClassComponent from './components/PracClassComponent'; // 실습
 
+import axios from 'axios'; // Axios import
+
 const name2 = '핑핑이';
 const animal2 = '강아지';
 let a = 5;
 let b = 4;
 const title = 'Hello World';
 
+// spring boot 프로젝트와 axios 통신
 function App() {
+  // 로그인
+  const login = async () => {
+    axios.post('/auth/signin');
+    localStorage.setItem('accessToken', res.data.token); // spring에서 token이라는 키를 보냈기 때문에 받아올 수 있다
+  };
+
+  // todo : 회원인 사람만 접속할 수 있는 url
+  // 회원 여부를 판단하기 위해 jwt에 넣어 보낸다
+  const getData = async () => {
+    const res = await axios.get('/todo', {
+      headers: {
+        Autorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    });
+  };
+
+  // 로그아웃
+  const logout = async () => {
+    localStorage.removeItem('accessToken');
+  };
+
+  //////////////////////////////////////////////////////////////
+
   return (
     <div>
       {/* FuncComponent() 불러오기 */}
