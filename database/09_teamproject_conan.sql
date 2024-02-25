@@ -13,6 +13,7 @@ CREATE TABLE user (
 	image VARCHAR(500),
 	PRIMARY KEY (id)
 );
+
 CREATE TABLE diary (
 	diaryId INT AUTO_INCREMENT,
 	id INT NOT NULL,
@@ -21,8 +22,8 @@ CREATE TABLE diary (
 	mood ENUM('happy', 'great', 'soso', 'sad', 'annoying') NOT NULL,
 	createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	currentLocation VARCHAR(50) NOT NULL,
-	weather INT NOT NULL,
+	currentLocation DOUBLE NOT NULL,
+	weather VARCHAR(50) NOT NULL,
 	isPublic BOOLEAN NOT NULL DEFAULT false,
 	PRIMARY KEY (diaryId),
 	FOREIGN KEY (id) REFERENCES user (id) ON DELETE CASCADE
@@ -57,8 +58,16 @@ CREATE TABLE reaction (
 INSERT INTO user (id, userid, password, salt, email, nickname) VALUES (1, 'asd123', 'qwer1234', 'salt1', 'keiua123@gmail.com', '피카츄');
 INSERT INTO user (id, userid, password, salt, email, nickname) VALUES (2, 'asd1234', 'qwer1234', 'salt2', 'lasdf426@naver.com', '치코리타');
 INSERT INTO user (id, userid, password, salt, email, nickname) VALUES (3, 'asd12345', 'qwer1234', 'salt3', 'user3@email.com', '은하철도의밤');
+INSERT INTO user (id, userid, password, salt, email, nickname) VALUES (4, 'qwe123', 'qwer1234', 'salt4', 'wekic8356@email.com', '똥멍청이');
+INSERT INTO user (id, userid, password, salt, email, nickname) VALUES (5, 'qwe1234', 'qwer1234', 'salt5', 'ukeci3542@email.com', '달디단밤양갱');
 INSERT INTO diary (id, diaryTitle, diaryContent, mood, createdAt, currentLocation, weather, isPublic) VALUES (1, '기분 좋은 날', '오늘은 날씨가 좋아서 기분이 좋았다.', 'happy', NOW(), '서울', 20, true);
 INSERT INTO diary (id, diaryTitle, diaryContent, mood, createdAt, currentLocation, weather, isPublic) VALUES (2, '그럭저럭', '오늘은 그저 그랬다.', 'soso', NOW(), '부산', 22, false);
 INSERT INTO diary (id, diaryTitle, diaryContent, mood, createdAt, currentLocation, weather, isPublic) VALUES (3, '슬픈 날', '오늘은 매우 슬픈 일이 있었다.', 'sad', NOW(), '대구', 18, false);
 INSERT INTO diary (id, diaryTitle, diaryContent, mood, createdAt, currentLocation, weather, isPublic) VALUES (4, '화가 나는 날', '오늘은 화가 나는 일이 있었다.', 'annoying', NOW(), '인천', 19, true);
 INSERT INTO diary (id, diaryTitle, diaryContent, mood, createdAt, currentLocation, weather, isPublic) VALUES (5, '좋은 날', '오늘은 정말로 좋은 날이었다.', 'great', NOW(), '광주', 21, false);
+
+SELECT * FROM user;
+SELECT * FROM diary;
+DROP TABLE diary;
+
+DELETE FROM user WHERE id =1;
