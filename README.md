@@ -2,7 +2,7 @@
 
 <br/><br/>
 
-## <a href="http://sesac.seoul.kr" style="color:darkgray">SeSAC (서울 청년취업사관학교)<a/>
+## <a href="http://sesac.seoul.kr" target='_blank' style="color:darkgray">SeSAC (서울 청년취업사관학교)<a/>
 
 풀스택 웹 융합 개발자 양성 과정 <br/>
 SeSAC 용산캠퍼스 2기
