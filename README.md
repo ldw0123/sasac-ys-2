@@ -1,13 +1,11 @@
-# sesac-ys-2
+<img width="982" alt="스크린샷 2024-03-21 오후 11 51 45" src="https://github.com/ldw0123/sesac-ys-2/assets/88626857/f07489be-23ef-45b9-badf-92044096206c">
 
-SeSAC 강의 코드 관리 <br/>
-작성자: ldw0123 <br/>
-작성일: 23.09.12. <br/>
-작성 장소: SeSAC 서울 청년취업사관학교 용산캠퍼스 <br/>
+<br/>
 
-- git branch test (예시: 로그인 UI 완료)
-- git branch test (예시: 로그인 API)
+# <a href="http://sesac.seoul.kr" style="color:darkgray">SeSAC (서울 청년취업사관학교)<a/>
 
-- git branch test4
+풀스택 웹 융합 개발자 양성 과정 <br/>
+SeSAC 용산캠퍼스 2기
+23.09.12. - 24.03.16.
 
-- pr test
+SeSAC 강의 코드 관리
